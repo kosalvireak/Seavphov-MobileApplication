@@ -5,5 +5,7 @@
     <string name="category">Category</string>
     <string name="notification">Notification</string>
     <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
+    <string name="search">Search</string>
     <string name="description">Seavphov is a helpful web app that works like a donation platform for books. People can list their old books on Seavphov, so that others can easily see what is available and borrow those books for free. @vireak</string>
 </resources>

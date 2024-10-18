@@ -5,6 +5,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@color/seavphov_green">
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_cart"
+            android:layout_marginHorizontal="10dp" />
+        <ImageView
+            android:id="@+id/seavphov_logo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/seavphov_icon"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_search"
+            android:layout_marginHorizontal="10dp"
+            />
+    </LinearLayout>
 
 
 
@@ -19,7 +45,7 @@
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         app:menu="@menu/bottom_menu_landing"
+        app:labelVisibilityMode="selected"
         android:layout_height="wrap_content"/>
-
 
 </LinearLayout>
