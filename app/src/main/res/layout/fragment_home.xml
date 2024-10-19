@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,7 +20,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:contentDescription="Background Image"/>
+            android:contentDescription="@string/background_image"/>
 
         <!-- Book Cover Image -->
         <LinearLayout
@@ -32,11 +31,11 @@
             android:gravity="center">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:orientation="vertical"
                 android:layout_weight="1"
-                android:layout_marginRight="10dp">
+                android:layout_marginEnd="10dp">
 
                 <!-- Book Title -->
 
@@ -44,7 +43,7 @@
                     android:id="@+id/book_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="The Lightning Thief"
+                    android:text="@string/the_lightning_thief"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -57,7 +56,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="Twelve-year-old Percy Jackson is on the most dangerous quest of his life. With the help of a satyr and a daughter of Athena, Percy must..."
+                    android:text="@string/book_description"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:layout_marginBottom="10dp"/>
@@ -70,8 +69,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
-                    android:text="Read more"
+                    android:text="@string/read_more"
                     android:textColor="@android:color/white"
+                    android:background="@drawable/rounded_button"
                     android:textSize="14sp"/>
 
         </LinearLayout>

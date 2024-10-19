@@ -7,5 +7,17 @@
     <string name="profile">Profile</string>
     <string name="cart">Cart</string>
     <string name="search">Search</string>
+
+    <string name="dummy_description">dummy_description</string>
     <string name="description">Seavphov is a helpful web app that works like a donation platform for books. People can list their old books on Seavphov, so that others can easily see what is available and borrow those books for free. @vireak</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="don_t_have_account_yet">Don’t have account yet?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="read_more">Read more</string>
+    <string name="book_description">Twelve-year-old Percy Jackson is on the most dangerous quest of his life. With the help of a satyr and a daughter of Athena, Percy must...</string>
+    <string name="the_lightning_thief">The Lightning Thief</string>
+    <string name="background_image">Background Image</string>
 </resources>

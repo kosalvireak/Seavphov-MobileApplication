@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:background="@color/seavphov_green">
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/seavphov_primary">
         <ImageView
             android:id="@+id/cart"
-            android:layout_width="30dp"
+            android:layout_width="20dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_cart"
-            android:layout_marginHorizontal="10dp" />
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/dummy_description" />
         <ImageView
             android:id="@+id/seavphov_logo"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:src="@drawable/seavphov_icon"
+            android:paddingVertical="5dp"
             android:layout_weight="1"
-            />
+            android:contentDescription="@string/dummy_description" />
         <ImageView
             android:id="@+id/search"
-            android:layout_width="30dp"
+            android:layout_width="20dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_search"
-            android:layout_marginHorizontal="10dp"
-            />
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/dummy_description" />
     </LinearLayout>
 
-
-
     <androidx.fragment.app.FragmentContainerView
-        android:layout_weight="1"
+        android:id="@+id/lyt_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/lyt_fragment"/>
-
+        android:layout_weight="1"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
