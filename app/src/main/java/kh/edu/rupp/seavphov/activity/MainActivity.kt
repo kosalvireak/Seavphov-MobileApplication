@@ -9,6 +9,7 @@ import kh.edu.rupp.seavphov.databinding.ActivityMainBinding
 import kh.edu.rupp.seavphov.fragment.AddBookFragment
 import kh.edu.rupp.seavphov.fragment.CategoryFragment
 import kh.edu.rupp.seavphov.fragment.HomeFragment
+import kh.edu.rupp.seavphov.fragment.LoginFragment
 import kh.edu.rupp.seavphov.fragment.NotificationFragment
 import kh.edu.rupp.seavphov.fragment.ProfileFragment
 
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         } else if (item.itemId == R.id.menu_notification) {
             showFragment(NotificationFragment())
         } else {
-            showFragment(ProfileFragment())
+            showFragment(LoginFragment())
         }
         return true
     }
@@ -42,7 +43,9 @@ class MainActivity : AppCompatActivity() {
     private fun showFragment(fragment: Fragment?) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding!!.lytFragment.id, fragment!!)
+        if (fragment != null) {
+            fragmentTransaction.replace(binding?.lytFragment!!.id, fragment)
+        }
         fragmentTransaction.commit()
     }
 }
