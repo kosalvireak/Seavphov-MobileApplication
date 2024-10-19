@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/seavphov_background"
@@ -11,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="UselessParent">
 
         <ImageView
             android:id="@+id/backicon"
@@ -20,27 +22,30 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:src="@drawable/ic_back"
-            android:layout_gravity="start"/>
+            android:layout_gravity="start"
+            android:contentDescription="@string/dummy_description" />
 
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:src="@drawable/seavphov_logo" />
+            android:src="@drawable/seavphov_logo"
+            android:contentDescription="@string/dummy_description" />
 
         <EditText
             android:id="@+id/email"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:background="@color/gray_text"
-            android:hint="Email"
-            android:inputType="text" />
+            android:hint="@string/email"
+            android:inputType="text"
+            tools:ignore="TextFields" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:background="@color/gray_text"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_marginTop="8dp" />
 
@@ -49,16 +54,16 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/seavphov_primary"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="16dp"/>
-<!--        android:background="@drawable/rounded_button"/>-->
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_button"/>
 
         <TextView
             android:id="@+id/forgetpassword"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Forget Password?"
+            android:text="@string/forget_password"
             android:layout_marginTop="8dp"
             android:textAlignment="center"/>
 
@@ -66,14 +71,14 @@
             android:id="@+id/register"
             android:layout_width="250dp"
             android:layout_height="25dp"
-            android:text="Don’t have account yet?"
+            android:text="@string/don_t_have_account_yet"
             android:layout_marginTop="8dp"
             android:textAlignment="center"/>
 
         <TextView
             android:layout_width="250dp"
             android:layout_height="25dp"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textColor="@color/seavphov_secondary"
             android:textAlignment="center"/>
 
