@@ -20,4 +20,11 @@
     <string name="book_description">Twelve-year-old Percy Jackson is on the most dangerous quest of his life. With the help of a satyr and a daughter of Athena, Percy must...</string>
     <string name="the_lightning_thief">The Lightning Thief</string>
     <string name="background_image">Background Image</string>
+    <string name="this_week_highlight">This Week\'s Highlight!</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="history">History</string>
+    <string name="horror">Horror</string>
+    <string name="romance">Romance</string>
+    <string name="see_all">See All</string>
+    <string name="newest_addition">Newest Addition!</string>
 </resources>
