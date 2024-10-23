@@ -11,7 +11,6 @@ import kh.edu.rupp.seavphov.fragment.CategoryFragment
 import kh.edu.rupp.seavphov.fragment.HomeFragment
 import kh.edu.rupp.seavphov.fragment.LoginFragment
 import kh.edu.rupp.seavphov.fragment.NotificationFragment
-import kh.edu.rupp.seavphov.fragment.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
     private var binding: ActivityMainBinding? = null
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding!!.bottomNavigationView.setOnItemSelectedListener { menuItem -> handleOnNavigationItemsSelected(menuItem) }
     }
 
-//    Bottom Navigation
+    //    Bottom Navigation
     private fun handleOnNavigationItemsSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_home) {
             showFragment(HomeFragment())
