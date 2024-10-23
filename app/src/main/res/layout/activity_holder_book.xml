@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp">
+
+    <ImageView
+        android:id="@+id/bookImage"
+        android:layout_width="85dp"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/seavphov_dummy"
+        android:contentDescription="@string/dummy_description" />
+
+
+    <TextView
+        android:id="@+id/bookTitle"
+        android:text="Siem Reap"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"/>
+
+
+    <TextView
+        android:id="@+id/bookPrice"
+        android:text="$10"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
