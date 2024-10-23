@@ -3,15 +3,30 @@
     {
       "title": "Percy Jackson",
       "price": "10$",
-      "imgUrl": "",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BMGMyZTI2MjUtODEzMi00M2JlLWEwZGEtYWE5MmY5OWNkYTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     },
     {
       "title": "City of Bones",
+      "price": "18$",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg",
+    },
+    {
+      "title": "The Fault in Our Stars",
       "price": "15$",
-      "imgUrl": "",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/seavphov-919d7.appspot.com/o/folder%2FThe_Fault_in_Our_Stars.jpg?alt=media&token=c8a26daf-a66c-40da-b775-3a85f8d49e00",
+    },
+    {
+      "title": "Percy Jackson",
+      "price": "10$",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BMGMyZTI2MjUtODEzMi00M2JlLWEwZGEtYWE5MmY5OWNkYTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     },
     {
       "title": "City of Bones",
+      "price": "18$",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg",
+    },
+    {
+      "title": "The Fault in Our Stars",
       "price": "15$",
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/seavphov-919d7.appspot.com/o/folder%2FThe_Fault_in_Our_Stars.jpg?alt=media&token=c8a26daf-a66c-40da-b775-3a85f8d49e00",
     }
