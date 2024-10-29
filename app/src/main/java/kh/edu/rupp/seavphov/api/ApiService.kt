@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 
 interface ApiService {
     @GET("carousel.json")
-    suspend fun loadCarousel(): List<Carousel>
+    suspend fun loadCarousel(): Carousel
 
     @GET("books.json")
     suspend fun loadBooks(): List<Book>

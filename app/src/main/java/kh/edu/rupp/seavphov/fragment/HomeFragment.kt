@@ -1,15 +1,18 @@
 package kh.edu.rupp.seavphov.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.picasso.Picasso
 import kh.edu.rupp.seavphov.adapter.BookAdapter
 import kh.edu.rupp.seavphov.databinding.FragmentHomeBinding
 import kh.edu.rupp.seavphov.model.Book
+import kh.edu.rupp.seavphov.model.Carousel
 import kh.edu.rupp.seavphov.viewmodel.HomeFragmentViewModel
 
 class HomeFragment : Fragment() {
@@ -37,6 +40,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        // observe data in view model
+        viewModel.homeState.observe(viewLifecycleOwner){carousel ->
+            hideLoading()
+            displayCarousel(carousel)
+        }
+
+        showLoading()
+        //Forward event to View Model
         viewModel.loadHome();
 
         binding.highlightRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -46,5 +58,22 @@ class HomeFragment : Fragment() {
         binding.newAdditionRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         bookAdapter = BookAdapter(bookList);
         binding.newAdditionRecyclerView.adapter = bookAdapter
+    }
+
+    private fun displayCarousel(carousel: Carousel){
+        binding.bookTitle.text = carousel.title
+        binding.bookDescription.text = carousel.description
+        Picasso.get()
+            .load(carousel.imgUrl)
+            .into(binding.bookImage)
+    }
+
+    private fun showLoading(){
+        binding.progressBar.visibility = View.VISIBLE
+        binding.carouselSection.visibility = View.GONE
+    }
+    private fun hideLoading(){
+        binding.progressBar.visibility = View.GONE
+        binding.carouselSection.visibility = View.VISIBLE
     }
 }
