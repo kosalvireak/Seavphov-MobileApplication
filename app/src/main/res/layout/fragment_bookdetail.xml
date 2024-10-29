@@ -4,13 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     android:background="@color/seavphov_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:layout_margin="20dp">
+        android:background="@drawable/rounded_corner"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp">
 
         <!-- Back Arrow -->
         <ImageView
@@ -24,19 +28,29 @@
             android:layout_marginTop="16dp"/>
 
         <!-- Book Image -->
-        <ImageView
-            android:id="@+id/bookImage"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bookImageContainer"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/seavphov_dummy"
-            android:background="@color/seavphov_background"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/heartIcon"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toEndOf="@+id/backArrow"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0">
+        <ImageView
+            android:id="@+id/bookImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/seavphov_dummy"
+            android:background="@color/seavphov_background"
+            android:scaleType="centerInside"/>
+
+        </androidx.cardview.widget.CardView>
 
         <!-- Heart Icon -->
         <ImageView
@@ -49,6 +63,206 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Book Title -->
+
+        <!-- Book Description -->
+        <TextView
+            android:id="@+id/bookTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="The Lightning Thief"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookImageContainer" />
+
+        <TextView
+            android:id="@+id/bookDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Percy Jackson is a twelve-year-old boy with dyslexia and ADHD living in New York City. While on a school trip to the Metropolitan Museum of Art, one of the chaperones, Mrs. Dodds, turns into a Fury and attacks him..."
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/bookTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--Book Other detail-->
+        <LinearLayout
+            android:id="@+id/bookInfoContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/bookDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="12dp"
+                android:text="Rick Riordan"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:drawableStart="@drawable/ic_author"
+                android:drawablePadding="8dp" />
+
+            <TextView
+                android:id="@+id/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="12dp"
+                android:text="Fantasy, Adventure"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:drawableStart="@drawable/ic_book_detail_category"
+                android:drawablePadding="8dp" />
+
+            <TextView
+                android:id="@+id/condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="12dp"
+                android:text="As new"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:drawableStart="@drawable/ic_condition"
+                android:drawablePadding="8dp" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="12dp"
+                android:text="St 198, No.45 RUPP Phnom Penh"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:drawableStart="@drawable/ic_location"
+                android:drawablePadding="8dp" />
+        </LinearLayout>
+
+        <!--Book Owner Description-->
+        <LinearLayout
+            android:id="@+id/bookOwnerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/bookInfoContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!--Profile-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="4dp">
+
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/seavphov_profile"
+                    android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!--Book Owner Name-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/ownerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kry Sokuntheary"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ownerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Book owner"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <!-- Contact Icons -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/telephoneContainer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/seavphov_background">
+
+                <ImageView
+                    android:id="@+id/telephone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_telephone"
+                    android:background="@color/seavphov_background"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Telephone button" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/messageContainer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/seavphov_background">
+
+                <ImageView
+                    android:id="@+id/message"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_message"
+                    android:background="@color/seavphov_background"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Message button" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/messageButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/less_rounded_corner"
+        android:text="Message me"
+        android:textColor="@android:color/white" />
+
+
 </LinearLayout>
