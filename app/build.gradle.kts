@@ -44,6 +44,11 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation("androidx.core:core-ktx:+")
     implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation ("androidx.activity:activity-ktx:1.6.1")
+    implementation ("androidx.fragment:fragment-ktx:1.6.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.2.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
