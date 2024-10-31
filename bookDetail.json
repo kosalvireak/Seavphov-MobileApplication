@@ -1,0 +1,31 @@
+{
+  "books": [
+    {
+      "title": "Percy Jackson",
+      "description": "Percy Jackson is a twelve-year-old boy with dyslexia and ADHD living in New York City. While on a school trip to the Metropolitan Museum of Art, one of the chaperones, Mrs. Dodds, turns into a Fury and attacks him...",
+      "author": "Rick Riordan",
+      "category": "Fantasy, Adventure",
+      "condition": "As new",
+      "location": "St 198, No.45 RUPP Phnom Penh",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BMGMyZTI2MjUtODEzMi00M2JlLWEwZGEtYWE5MmY5OWNkYTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,1,380,562_.jpg",
+    },
+    {
+      "title": "City of Bones",
+      "description": "When fifteen-year-old Clary Fray heads out to the Pandemonium Club in New York City, she hardly expects to witness a murder― much less a murder committed by ...",
+      "author": "Cassandra Claire",
+      "category": "Thriller, Adventure",
+      "condition": "Well worn",
+      "location": "St 1228, No.125 Techno Phnom Penh",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg",
+    },
+    {
+      "title": "The Fault in Our Stars",
+      "description": "Teenager Hazel Grace's life changes when she meets Augustus Waters at a cancer support group. The two then embark on a life-changing journey which brings them even closer.",
+      "author": "John Green",
+      "category": "Romance",
+      "condition": "Well worn",
+      "location": "St 1228, No.125 Techno Phnom Penh",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/seavphov-919d7.appspot.com/o/folder%2FThe_Fault_in_Our_Stars.jpg?alt=media&token=c8a26daf-a66c-40da-b775-3a85f8d49e00",
+    }
+  ]
+}
