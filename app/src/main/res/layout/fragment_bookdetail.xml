@@ -261,7 +261,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="@drawable/less_rounded_corner"
-        android:text="Message me"
+        android:text="@string/message_me"
         android:textColor="@android:color/white" />
 
 
