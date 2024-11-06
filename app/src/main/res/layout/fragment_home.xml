@@ -66,18 +66,16 @@
                                 android:text="@string/book_description"
                                 android:textColor="@android:color/white"
                                 android:textSize="12sp"
-                                android:layout_marginBottom="10dp"/>
+                                android:layout_marginBottom="15dp"/>
                             <!-- Read More Button -->
-                            <Button
-                                android:id="@+id/read_more_button"
-                                android:layout_width="wrap_content"
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/readmoreButton"
+                                android:layout_width="120dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginTop="4dp"
+                                android:padding="10sp"
+                                android:background="@drawable/less_rounded_corner"
                                 android:text="@string/read_more"
-                                android:textColor="@android:color/white"
-                                android:background="@drawable/rounded_button"
-                                android:textSize="14sp"/>
+                                android:textColor="@android:color/white" />
                     </LinearLayout>
                     <ImageView
                         android:id="@+id/book_image"
