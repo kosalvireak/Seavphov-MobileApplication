@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -31,59 +31,69 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:contentDescription="@string/background_image"/>
                 <!-- Book Cover Image -->
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <FrameLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="20dp"
-                    android:gravity="center">
+                    tools:ignore="MissingConstraints">
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="20dp"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="150dp"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="10dp">
+                            <!-- Book Title -->
+                            <TextView
+                                android:id="@+id/book_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/the_lightning_thief"
+                                android:textColor="@android:color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"/>
+                            <!-- Book Description -->
+                            <TextView
+                                android:id="@+id/book_description"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="@string/book_description"
+                                android:textColor="@android:color/white"
+                                android:textSize="12sp"
+                                android:layout_marginBottom="15dp"/>
+                            <!-- Read More Button -->
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/readmoreButton"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:background="@drawable/less_rounded_corner"
+                                android:text="@string/read_more"
+                                android:textColor="@android:color/white" />
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/book_image"
+                        android:layout_width="100dp"
                         android:layout_height="150dp"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="10dp">
-                        <!-- Book Title -->
-                        <TextView
-                            android:id="@+id/book_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/the_lightning_thief"
-                            android:textColor="@android:color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="10dp"/>
-                        <!-- Book Description -->
-                        <TextView
-                            android:id="@+id/book_description"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
-                            android:text="@string/book_description"
-                            android:textColor="@android:color/white"
-                            android:textSize="12sp"
-                            android:layout_marginBottom="10dp"/>
-                        <!-- Read More Button -->
-                        <Button
-                            android:id="@+id/read_more_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/read_more"
-                            android:textColor="@android:color/white"
-                            android:background="@drawable/rounded_button"
-                            android:textSize="14sp"/>
-                </LinearLayout>
-                <ImageView
-                    android:id="@+id/book_image"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/seavphov_dummy"
-                    android:contentDescription="@string/dummy_description" />
-                </LinearLayout>
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/seavphov_dummy"
+                        android:contentDescription="@string/dummy_description" />
+                    </LinearLayout>
+                    <ProgressBar
+                        android:id="@+id/carousel_progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        tools:ignore="MissingConstraints" />
+                </FrameLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

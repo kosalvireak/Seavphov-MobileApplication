@@ -7,10 +7,12 @@ import androidx.fragment.app.Fragment
 import kh.edu.rupp.seavphov.R
 import kh.edu.rupp.seavphov.databinding.ActivityMainBinding
 import kh.edu.rupp.seavphov.fragment.AddBookFragment
+import kh.edu.rupp.seavphov.fragment.BookDetailFragment
 import kh.edu.rupp.seavphov.fragment.CategoryFragment
 import kh.edu.rupp.seavphov.fragment.HomeFragment
 import kh.edu.rupp.seavphov.fragment.LoginFragment
 import kh.edu.rupp.seavphov.fragment.NotificationFragment
+import kh.edu.rupp.seavphov.model.BookDetail
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding;
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_home -> showFragment(HomeFragment())
             R.id.menu_category ->  showFragment(CategoryFragment())
-            R.id.menu_add_book ->  showFragment(AddBookFragment())
+            R.id.menu_add_book ->  showFragment(BookDetailFragment())
             R.id.menu_notification -> showFragment(NotificationFragment())
             else -> showFragment(LoginFragment())
         }
