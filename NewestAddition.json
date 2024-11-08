@@ -15,17 +15,17 @@
     {
         title: "The Little Prince",
         price: 9.99,
-        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Le_Petit_Prince.jpg/220px-Le_Petit_Prince.jpg"
+        imgUrl: "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG"
     },
     {
         title: "The Alchemist",
         price: 12.99,
-        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/O_Alquimista_%28livro%29.jpg/220px-O_Alquimista_%28livro%29.jpg"
+        imgUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
     },
     {
         title: "The Hobbit",
         price: 17.99,
-        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/The_Hobbit_book_cover.jpg/220px-The_Hobbit_book_cover.jpg"
+        imgUrl: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg"
     }
   ]
 }
