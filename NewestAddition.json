@@ -1,0 +1,31 @@
+{
+  "status": "success",
+  "message": "",
+  "data": [
+        {
+        title: "The Catcher in the Rye",
+        price: 15.99,
+        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/The_Catcher_in_the_Rye_book_cover.jpg/220px-The_Catcher_in_the_Rye_book_cover.jpg"
+    },
+    {
+        title: "1984",
+        price: 16.99,
+        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/1984firstUKedition.jpg/220px-1984firstUKedition.jpg"
+    },
+    {
+        title: "The Little Prince",
+        price: 9.99,
+        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Le_Petit_Prince.jpg/220px-Le_Petit_Prince.jpg"
+    },
+    {
+        title: "The Alchemist",
+        price: 12.99,
+        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/O_Alquimista_%28livro%29.jpg/220px-O_Alquimista_%28livro%29.jpg"
+    },
+    {
+        title: "The Hobbit",
+        price: 17.99,
+        imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/The_Hobbit_book_cover.jpg/220px-The_Hobbit_book_cover.jpg"
+    }
+  ]
+}
