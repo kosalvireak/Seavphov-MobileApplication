@@ -1,0 +1,31 @@
+{
+  "status": "success",
+  "message": "",
+  "data": [
+    {
+        title: "The Lord of the Rings",
+        price: 19.99,
+        imgUrl: "https://m.media-amazon.com/images/M/MV5BNmVmZGQ2ZTctYzE4NC00YzkxLThhNjYtNGIyZjJmZGEwMjUzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+        title: "Pride and Prejudice",
+        price: 12.99,
+        imgUrl: "https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+    },
+    {
+        title: "To Kill a Mockingbird",
+        price: 14.99,
+        imgUrl: "https://example.com/books/to-kill-a-mockingbird.jpg"
+    },
+    {
+        title: "The Hitchhiker's Guide to the Galaxy",
+        price: 11.99,
+        imgUrl: "https://example.com/books/hitchhikers-guide.jpg"
+    },
+    {
+        title: "The Great Gatsby",
+        price: 13.99,
+        imgUrl: "https://example.com/books/great-gatsby.jpg"
+    }
+  ]
+}
