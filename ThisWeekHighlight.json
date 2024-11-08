@@ -15,17 +15,17 @@
     {
         title: "To Kill a Mockingbird",
         price: 14.99,
-        imgUrl: "https://example.com/books/to-kill-a-mockingbird.jpg"
+        imgUrl: "https://vaundamicheauxnelson.com/wp-content/uploads/2021/12/Mockingbird-Cover.jpg"
     },
     {
         title: "The Hitchhiker's Guide to the Galaxy",
         price: 11.99,
-        imgUrl: "https://example.com/books/hitchhikers-guide.jpg"
+        imgUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg"
     },
     {
         title: "The Great Gatsby",
         price: 13.99,
-        imgUrl: "https://example.com/books/great-gatsby.jpg"
+        imgUrl: "https://m.media-amazon.com/images/I/81QuEGw8VPL.jpg"
     }
   ]
 }
