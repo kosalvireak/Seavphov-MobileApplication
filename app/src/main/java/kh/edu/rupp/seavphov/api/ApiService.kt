@@ -16,4 +16,10 @@ interface ApiService {
 
     @GET("bookDetail.json")
     suspend fun loadBookDetail() : BookDetail
+
+    @GET("NewestAddition.json")
+    suspend fun loadNewestAddition(): ApiResponse<ArrayList<Book>>
+
+    @GET("ThisWeekHighlight.json")
+    suspend fun loadThisWeekHighlight(): ApiResponse<ArrayList<Book>>
 }

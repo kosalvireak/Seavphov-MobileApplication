@@ -19,16 +19,15 @@ import kh.edu.rupp.seavphov.viewmodel.HomeFragmentViewModel
 
 class HomeFragment : Fragment() {
     private val viewModel by viewModels<HomeFragmentViewModel>()
-
     private lateinit var binding: FragmentHomeBinding;
     private var bookAdapter: BookAdapter? = null;
-    private var bookList = listOf(
-        Book("Percy Jackson", "$10", "https://m.media-amazon.com/images/M/MV5BMGMyZTI2MjUtODEzMi00M2JlLWEwZGEtYWE5MmY5OWNkYTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,1,380,562_.jpg"),
-        Book("City of Bones", "$15", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg"),
-        Book("The Fault in Our Stars", "$20", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660273739i/11870085.jpg"),
-        Book("City of Bones", "$15", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg"),
-        Book("The Fault in Our Stars", "$20", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660273739i/11870085.jpg"),
-    )
+//    private var bookList = listOf(
+//        Book("Percy Jackson", "$10", "https://m.media-amazon.com/images/M/MV5BMGMyZTI2MjUtODEzMi00M2JlLWEwZGEtYWE5MmY5OWNkYTRjXkEyXkFqcGc@._V1_QL75_UX380_CR0,1,380,562_.jpg"),
+//        Book("City of Bones", "$15", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg"),
+//        Book("The Fault in Our Stars", "$20", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660273739i/11870085.jpg"),
+//        Book("City of Bones", "$15", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg"),
+//        Book("The Fault in Our Stars", "$20", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660273739i/11870085.jpg"),
+//    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +40,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        Log.d("Seavphov","onViewCreated: ")
 
         // observe data in view model
         viewModel.homeState.observe(viewLifecycleOwner){ carouselState ->
@@ -57,18 +59,56 @@ class HomeFragment : Fragment() {
             }
         }
 
+        viewModel.newestAdditionState.observe(viewLifecycleOwner){ newestAdditionState ->
+            when(newestAdditionState.state) {
+                State.loading -> hideMainLoading()
+                State.success -> {
+                    hideMainLoading()
+                    displayNewestAddition(newestAdditionState.data!!)
+                }
+                State.error -> {
+                    hideMainLoading()
+                    showErrorContent()
+                }
+            }
+        }
+
+
+        viewModel.thisWeekHighlightState.observe(viewLifecycleOwner){ thisWeekHighlightState ->
+            when(thisWeekHighlightState.state) {
+                State.loading -> hideMainLoading()
+                State.success -> {
+                    hideMainLoading()
+                    displayThisWeekHighlight(thisWeekHighlightState.data!!)
+                }
+                State.error -> {
+                    hideMainLoading()
+                    showErrorContent()
+                }
+            }
+        }
+
         showCarouselLoading()
+        showMainLoading()
         //Forward event to View Model
         viewModel.loadHome();
+        viewModel.loadNewestAddition()
+        viewModel.loadThisWeekHighlight()
 
-        binding.highlightRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        bookAdapter = BookAdapter(bookList);
-        binding.highlightRecyclerView.adapter = bookAdapter
-        hideMainLoading()
+    }
 
-        binding.newAdditionRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    private fun displayNewestAddition(bookList: ArrayList<Book>) {
+        binding.newAdditionRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         bookAdapter = BookAdapter(bookList);
         binding.newAdditionRecyclerView.adapter = bookAdapter
+    }
+
+    private fun displayThisWeekHighlight(bookList: ArrayList<Book>) {
+        binding.thisWeekHightlight.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        bookAdapter = BookAdapter(bookList);
+        binding.thisWeekHightlight.adapter = bookAdapter
     }
 
     private fun displayCarousel(carousel: Carousel){
@@ -90,11 +130,11 @@ class HomeFragment : Fragment() {
 
     private fun showMainLoading(){
         binding.progressBar.visibility = View.VISIBLE
-        binding.carouselSection.visibility = View.GONE
+        binding.bodySection.visibility = View.GONE
     }
     private fun hideMainLoading(){
         binding.progressBar.visibility = View.GONE
-        binding.carouselSection.visibility = View.VISIBLE
+        binding.bodySection.visibility = View.VISIBLE
     }
 
 
