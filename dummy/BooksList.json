@@ -1,86 +1,102 @@
 {
-  "status": "success",
-  "message": "",
-  "data": [
-    {
-      "title": "The Hobbit",
-      "price": 17.99,
-      "imgUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg"
-    },
-    {
-      "title": "The Lord of the Rings",
-      "price": 19.99,
-      "imgUrl": "https://m.media-amazon.com/images/M/MV5BNmVmZGQ2ZTctYzE4NC00YzkxLThhNjYtNGIyZjJmZGEwMjUzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-    },
-    {
-      "title": "Pride and Prejudice",
-      "price": 12.99,
-      "imgUrl": "https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_QL75_UX190_CR0,0,190,281_.jpg"
-    },
-    {
-      "title": "The Catcher in the Rye",
-      "price": 15.99,
-      "imgUrl": "https://m.media-amazon.com/images/I/8125BDk3l9L._AC_UF1000,1000_QL80_.jpg"
-    },
-    {
-      "title": "1984",
-      "price": 16.99,
-      "imgUrl": "https://m.media-amazon.com/images/I/71rpa1-kyvL._AC_UF1000,1000_QL80_.jpg"
-    },
-    {
-      "title": "The Little Prince",
-      "price": 9.99,
-      "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG"
-    },
-    {
-      "title": "The Alchemist",
-      "price": 12.99,
-      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
-    },
-    {
-      "title": "To Kill a Mockingbird",
-      "price": 14.99,
-      "imgUrl": "https://vaundamicheauxnelson.com/wp-content/uploads/2021/12/Mockingbird-Cover.jpg"
-    },
-    {
-      "title": "The Hitchhiker's Guide to the Galaxy",
-      "price": 11.99,
-      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg"
-    },
-    {
-      "title": "The Great Gatsby",
-      "price": 13.99,
-      "imgUrl": "https://m.media-amazon.com/images/I/81QuEGw8VPL.jpg"
-    },
-    {
-      "title": "1984",
-      "price": 16.99,
-      "imgUrl": "https://m.media-amazon.com/images/I/71rpa1-kyvL._AC_UF1000,1000_QL80_.jpg"
-    },
-    {
-      "title": "The Little Prince",
-      "price": 9.99,
-      "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG"
-    },
-    {
-      "title": "The Alchemist",
-      "price": 12.99,
-      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
-    },
-    {
-      "title": "To Kill a Mockingbird",
-      "price": 14.99,
-      "imgUrl": "https://vaundamicheauxnelson.com/wp-content/uploads/2021/12/Mockingbird-Cover.jpg"
-    },
-    {
-      "title": "The Hitchhiker's Guide to the Galaxy",
-      "price": 11.99,
-      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg"
-    },
-    {
-      "title": "The Great Gatsby",
-      "price": 13.99,
-      "imgUrl": "https://m.media-amazon.com/images/I/81QuEGw8VPL.jpg"
-    }
-  ]
+    "status": "success",
+    "message": "",
+    "data": [
+        {
+            "title": "The Hobbit",
+            "price": 17.99,
+            "imgUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
+            "condition": "Well-worn"
+        },
+        {
+            "title": "The Lord of the Rings",
+            "price": 19.99,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNmVmZGQ2ZTctYzE4NC00YzkxLThhNjYtNGIyZjJmZGEwMjUzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+            "condition": "As-new"
+        },
+        {
+            "title": "Pride and Prejudice",
+            "price": 12.99,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+            "condition": "Good"
+        },
+        {
+            "title": "The Catcher in the Rye",
+            "price": 15.99,
+            "imgUrl": "https://m.media-amazon.com/images/I/8125BDk3l9L._AC_UF1000,1000_QL80_.jpg",
+            "condition": "As-new"
+        },
+        {
+            "title": "1984",
+            "price": 16.99,
+            "imgUrl": "https://m.media-amazon.com/images/I/71rpa1-kyvL._AC_UF1000,1000_QL80_.jpg",
+            "condition": "Well-worn"
+        },
+        {
+            "title": "The Little Prince",
+            "price": 9.99,
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG",
+            "condition": "Good"
+        },
+        {
+            "title": "The Alchemist",
+            "price": 12.99,
+            "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
+            "condition": "As-new"
+        },
+        {
+            "title": "To Kill a Mockingbird",
+            "price": 14.99,
+            "imgUrl": "https://vaundamicheauxnelson.com/wp-content/uploads/2021/12/Mockingbird-Cover.jpg",
+            "condition": "Well-worn"
+        },
+        {
+            "title": "The Hitchhiker's Guide to the Galaxy",
+            "price": 11.99,
+            "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg",
+            "condition": "Good"
+        },
+        {
+            "title": "The Great Gatsby",
+            "price": 13.99,
+            "imgUrl": "https://m.media-amazon.com/images/I/81QuEGw8VPL.jpg",
+            "condition": "As-new"
+        },
+        {
+            "title": "1984",
+            "price": 16.99,
+            "imgUrl": "https://m.media-amazon.com/images/I/71rpa1-kyvL._AC_UF1000,1000_QL80_.jpg",
+            "condition": "Good"
+        },
+        {
+            "title": "The Little Prince",
+            "price": 9.99,
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG",
+            "condition": "Well-worn"
+        },
+        {
+            "title": "The Alchemist",
+            "price": 12.99,
+            "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
+            "condition": "Good"
+        },
+        {
+            "title": "To Kill a Mockingbird",
+            "price": 14.99,
+            "imgUrl": "https://vaundamicheauxnelson.com/wp-content/uploads/2021/12/Mockingbird-Cover.jpg",
+            "condition": "As-new"
+        },
+        {
+            "title": "The Hitchhiker's Guide to the Galaxy",
+            "price": 11.99,
+            "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1404613595i/13.jpg",
+            "condition": "Well-worn"
+        },
+        {
+            "title": "The Great Gatsby",
+            "price": 13.99,
+            "imgUrl": "https://m.media-amazon.com/images/I/81QuEGw8VPL.jpg",
+            "condition": "Good"
+        }
+    ]
 }
