@@ -30,6 +30,11 @@ class HomeFragmentViewModel: ViewModel() {
     private val _thisWeekHighlightState = MutableLiveData<ApiState<ArrayList<Book>>>()
     val thisWeekHighlightState: LiveData<ApiState<ArrayList<Book>>> get() = _thisWeekHighlightState;
 //    for ThisWeekHighlight
+
+    //    for BooksList
+    private val _booksListState = MutableLiveData<ApiState<ArrayList<Book>>>()
+    val booksListState: LiveData<ApiState<ArrayList<Book>>> get() = _booksListState;
+    //    for BooksList
     fun loadHome(){
         val apiService = ApiManager.getApiService()
         viewModelScope.launch {
@@ -79,6 +84,24 @@ class HomeFragmentViewModel: ViewModel() {
                 } else {
                     Log.d("Seavphov","Load ThisWeekHighlight Error")
                     _thisWeekHighlightState.postValue(ApiState(State.error, null))
+                }
+            }catch (ex: Exception){
+                Log.e("Seavphov", "Error while loading ThisWeekHighlight: $ex")
+            }
+        }
+    }
+
+    fun loadBooksList(){
+        val apiService = ApiManager.getApiService()
+        viewModelScope.launch {
+            val response = apiService.loadBooksList()
+            try {
+                if(response.isSuccess()){
+                    Log.d("Seavphov","Load ThisWeekHighlight Success")
+                    _booksListState.postValue(ApiState(State.success, response.data))
+                } else {
+                    Log.d("Seavphov","Load ThisWeekHighlight Error")
+                    _booksListState.postValue(ApiState(State.error, null))
                 }
             }catch (ex: Exception){
                 Log.e("Seavphov", "Error while loading ThisWeekHighlight: $ex")
