@@ -28,7 +28,6 @@ class HomeFragment : Fragment() {
 //        Book("City of Bones", "$15", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432730315i/256683.jpg"),
 //        Book("The Fault in Our Stars", "$20", "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660273739i/11870085.jpg"),
 //    )
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,9 +39,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        Log.d("Seavphov","onViewCreated: ")
 
         // observe data in view model
         viewModel.homeState.observe(viewLifecycleOwner){ carouselState ->
@@ -72,7 +68,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
 
         viewModel.thisWeekHighlightState.observe(viewLifecycleOwner){ thisWeekHighlightState ->
             when(thisWeekHighlightState.state) {

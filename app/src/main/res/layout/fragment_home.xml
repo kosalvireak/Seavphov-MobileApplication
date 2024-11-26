@@ -17,7 +17,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/carousel_section"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="240dp"
                 android:layout_gravity="top">
                 <ImageView
                     android:id="@+id/background_image"
@@ -56,7 +56,9 @@
                                 android:textColor="@android:color/white"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
-                                android:layout_marginBottom="10dp"/>
+                                android:layout_weight="1"
+                                android:layout_marginBottom="10dp"
+                                tools:ignore="NestedWeights" />
                             <!-- Book Description -->
                             <TextView
                                 android:id="@+id/book_description"
@@ -66,11 +68,12 @@
                                 android:text="@string/book_description"
                                 android:textColor="@android:color/white"
                                 android:textSize="12sp"
+                                android:layout_weight="1"
                                 android:layout_marginBottom="15dp"/>
                             <!-- Read More Button -->
                             <androidx.appcompat.widget.AppCompatButton
                                 android:id="@+id/readmoreButton"
-                                android:layout_width="80dp"
+                                android:layout_width="95dp"
                                 android:layout_height="35dp"
                                 android:background="@drawable/secondary_button"
                                 android:text="@string/read_more"
@@ -170,9 +173,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="@string/see_all"
+                        android:text="@string/view_more"
                         android:textColor="@color/gray_text"/>
-
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/this_week_hightlight"
