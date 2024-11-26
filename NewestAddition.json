@@ -1,0 +1,31 @@
+{
+  "status": "success",
+  "message": "",
+  "data": [
+    {
+      "title": "The Catcher in the Rye",
+      "price": 15.99,
+      "imgUrl": "https://m.media-amazon.com/images/I/8125BDk3l9L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "title": "1984",
+      "price": 16.99,
+      "imgUrl": "https://m.media-amazon.com/images/I/71rpa1-kyvL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "title": "The Little Prince",
+      "price": 9.99,
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG"
+    },
+    {
+      "title": "The Alchemist",
+      "price": 12.99,
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
+    },
+    {
+      "title": "The Hobbit",
+      "price": 17.99,
+      "imgUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg"
+    }
+  ]
+}
