@@ -1,27 +1,27 @@
 [
   {
     "booktitle": "The Great Gatsby",
-    "bookImg": "https://example.com/gatsby.jpg",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
     "category": "Fiction"
   },
   {
     "booktitle": "1984",
-    "bookImg": "https://example.com/1984.jpg",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
     "category": "Dystopian"
   },
   {
     "booktitle": "To Kill a Mockingbird",
-    "bookImg": "https://example.com/mockingbird.jpg",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
     "category": "Classic"
   },
   {
     "booktitle": "Pride and Prejudice",
-    "bookImg": "https://example.com/pride_prejudice.jpg",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
     "category": "Romance"
   },
   {
     "booktitle": "Moby Dick",
-    "bookImg": "https://example.com/moby_dick.jpg",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
     "category": "Adventure"
   }
 ]
