@@ -1,0 +1,27 @@
+[
+  {
+    "booktitle": "The Great Gatsby",
+    "bookImg": "https://example.com/gatsby.jpg",
+    "category": "Fiction"
+  },
+  {
+    "booktitle": "1984",
+    "bookImg": "https://example.com/1984.jpg",
+    "category": "Dystopian"
+  },
+  {
+    "booktitle": "To Kill a Mockingbird",
+    "bookImg": "https://example.com/mockingbird.jpg",
+    "category": "Classic"
+  },
+  {
+    "booktitle": "Pride and Prejudice",
+    "bookImg": "https://example.com/pride_prejudice.jpg",
+    "category": "Romance"
+  },
+  {
+    "booktitle": "Moby Dick",
+    "bookImg": "https://example.com/moby_dick.jpg",
+    "category": "Adventure"
+  }
+]
