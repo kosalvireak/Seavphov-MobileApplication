@@ -22,4 +22,8 @@ interface ApiService {
 
     @GET("ThisWeekHighlight.json")
     suspend fun loadThisWeekHighlight(): ApiResponse<ArrayList<Book>>
+
+
+    @GET("BooksList.json")
+    suspend fun loadBooksList(): ApiResponse<ArrayList<Book>>
 }

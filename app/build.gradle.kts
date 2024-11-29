@@ -48,6 +48,7 @@ dependencies {
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
     implementation ("com.squareup.retrofit2:retrofit:2.11.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.2.0")
+    implementation ("androidx.core:core-ktx:1.12.0") // Or the latest version
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
