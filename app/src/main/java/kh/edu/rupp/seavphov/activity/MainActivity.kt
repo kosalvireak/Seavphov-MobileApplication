@@ -2,54 +2,66 @@ package kh.edu.rupp.seavphov.activity
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.navigation.NavigationBarView
 import kh.edu.rupp.seavphov.R
 import kh.edu.rupp.seavphov.databinding.ActivityMainBinding
-import kh.edu.rupp.seavphov.fragment.AddBookFragment
-import kh.edu.rupp.seavphov.fragment.BookDetailFragment
-import kh.edu.rupp.seavphov.fragment.CategoryFragment
-import kh.edu.rupp.seavphov.fragment.HomeFragment
-import kh.edu.rupp.seavphov.fragment.LoginFragment
-import kh.edu.rupp.seavphov.fragment.NotificationFragment
-import kh.edu.rupp.seavphov.model.BookDetail
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding;
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.bottomNavigationView.labelVisibilityMode =
+            NavigationBarView.LABEL_VISIBILITY_UNLABELED
+        binding.bottomNavigationView.isItemHorizontalTranslationEnabled = false
+
         setContentView(binding.root)
 
-        val homeFragment = HomeFragment()
-        showFragment(homeFragment)
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            menuItem -> handleOnNavigationItemsSelected(menuItem)
+        // Start Fragment
+        navController.navigate(R.id.homeFragment)
+
+        // Handle on click
+        binding.searchButton.setOnClickListener {
+            navController.navigate(R.id.categoryFragment)
+            binding.bottomNavigationView.selectedItemId = R.id.menu_category
+        }
+
+        binding.seavphovLogo.setOnClickListener {
+            navController.navigate(R.id.homeFragment)
+            binding.bottomNavigationView.selectedItemId = R.id.menu_home
+        }
+
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            handleOnNavigationItemsSelected(menuItem)
         }
     }
 
-    //    Bottom Navigation
     private fun handleOnNavigationItemsSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_home -> showFragment(HomeFragment())
-            R.id.menu_category ->  showFragment(CategoryFragment())
-            R.id.menu_add_book ->  showFragment(BookDetailFragment())
-            R.id.menu_notification -> showFragment(NotificationFragment())
-            else -> showFragment(LoginFragment())
+            R.id.menu_home -> navController.navigate(R.id.homeFragment)
+            R.id.menu_category -> navController.navigate(R.id.categoryFragment)
+            R.id.menu_add_book -> navController.navigate(R.id.addBookFragment)
+            R.id.menu_notification -> navController.navigate(R.id.notificationFragment)
+            else -> navController.navigate(R.id.loginFragment)
         }
         return true
     }
 
-    private fun showFragment(fragment: Fragment) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.lytFragment.id, fragment)
-        fragmentTransaction.commit()
+    fun hideBottomNavigation() {
+        binding.bottomNavigationView.visibility = View.GONE
+    }
 
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(binding.lytFragment.id, fragment)
-//            commit()
-//        }
+    fun showBottomNavigation() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
     }
 }

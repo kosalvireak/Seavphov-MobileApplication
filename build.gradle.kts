@@ -2,4 +2,5 @@
 plugins {
     alias(libs.plugins.androidApplication) apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
+    id("androidx.navigation.safeargs") version "2.8.4" apply false
 }

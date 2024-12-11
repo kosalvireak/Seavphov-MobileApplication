@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/navbar_container"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="center_vertical"
@@ -27,7 +28,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/dummy_description" />
         <ImageView
-            android:id="@+id/search"
+            android:id="@+id/searchButton"
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_search"
@@ -36,17 +37,19 @@
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/lyt_fragment"
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        />
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
-        app:menu="@menu/bottom_menu_landing"
+        android:layout_height="wrap_content"
         app:labelVisibilityMode="selected"
-        android:layout_height="wrap_content"/>
+        app:menu="@menu/bottom_menu_landing" />
 
 </LinearLayout>

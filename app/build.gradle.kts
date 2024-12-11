@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -48,9 +49,24 @@ dependencies {
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
     implementation ("com.squareup.retrofit2:retrofit:2.11.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.2.0")
-    implementation ("androidx.core:core-ktx:1.12.0") // Or the latest version
+    implementation ("androidx.core:core-ktx:1.12.0")
+    implementation ("androidx.compose.material3:material3:1.3.1")
+    implementation ("com.google.android.material:material:1.12.0")
+    implementation ("androidx.navigation:navigation-runtime-ktx:2.8.4")
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.8.4")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.8.4")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+}
+
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        val nav_version = "2.8.4"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+    }
 }
