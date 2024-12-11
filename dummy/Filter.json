@@ -1,0 +1,27 @@
+[
+  {
+    "booktitle": "The Great Gatsby",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
+    "category": "Fiction"
+  },
+  {
+    "booktitle": "1984",
+    "bookImg": "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG",
+    "category": "Dystopian"
+  },
+  {
+    "booktitle": "To Kill a Mockingbird",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
+    "category": "Classic"
+  },
+  {
+    "booktitle": "Pride and Prejudice",
+    "bookImg": "https://upload.wikimedia.org/wikipedia/en/0/05/Littleprince.JPG",
+    "category": "Romance"
+  },
+  {
+    "booktitle": "Moby Dick",
+    "bookImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
+    "category": "Adventure"
+  }
+]
