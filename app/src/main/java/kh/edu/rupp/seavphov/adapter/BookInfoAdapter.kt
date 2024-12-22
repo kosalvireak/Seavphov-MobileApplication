@@ -1,5 +1,6 @@
 package kh.edu.rupp.seavphov.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,11 +16,11 @@ class BookInfoAdapter(private val bookList: List<Book>) : RecyclerView.Adapter<B
         return BookViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = bookList[position]
         holder.binding.bookTitle.text = book.title
-        holder.binding.bookPrice.text = book.price
-        holder.binding.bookCondition.text = book.condition
+        holder.binding.bookPrice.text = "$ " + book.price
         Picasso.get()
             .load(book.imgUrl)
             .into(holder.binding.bookImage);

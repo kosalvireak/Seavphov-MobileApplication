@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <FrameLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -72,7 +72,7 @@
                                 android:layout_marginBottom="15dp"/>
                             <!-- Read More Button -->
                             <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/readmoreButton"
+                                android:id="@+id/readMoreButton"
                                 android:layout_width="95dp"
                                 android:layout_height="35dp"
                                 android:background="@drawable/secondary_button"
@@ -96,62 +96,62 @@
                         tools:ignore="MissingConstraints" />
                 </FrameLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"
-                android:weightSum="5">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:text="@string/fantasy"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@drawable/rounded_button"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:text="@string/history"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@drawable/rounded_button"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:text="@string/horror"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@drawable/rounded_button"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:text="@string/romance"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@drawable/rounded_button"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:text="@string/see_all"
-                    android:textSize="14sp"
-                    android:background="@drawable/rounded_button"/>
-            </LinearLayout>
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="ScrollViewCount"
+                    android:paddingVertical="10dp"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/fantasyButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:background="@drawable/primary_button"
+                        android:text="@string/fantasy"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@android:color/white" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/historyButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:background="@drawable/primary_button"
+                        android:text="@string/history"
+                        android:textSize="12sp"
+                        android:layout_marginHorizontal="5dp"
+                        android:textColor="@android:color/white" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/horrorButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:background="@drawable/primary_button"
+                        android:text="@string/horror"
+                        android:textSize="12sp"
+                        android:layout_marginHorizontal="5dp"
+                        android:textColor="@android:color/white" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/romanceButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:background="@drawable/primary_button"
+                        android:text="@string/romance"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/seeAllButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:background="@drawable/primary_button"
+                        android:text="@string/see_all"
+                        android:textSize="12sp"
+                        android:layout_marginHorizontal="5dp"
+                        android:textColor="@android:color/white" />
+                    </LinearLayout>
+            </HorizontalScrollView>
             <LinearLayout
                 android:id="@+id/body_section"
                 android:layout_width="match_parent"
