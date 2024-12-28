@@ -3,12 +3,14 @@ const Book = require("../model/bookModel");
 
 // Get all books
 const getBooks = asyncHandler(async (req, res) => {
+  console.log("getBooks : req", req);
   const books = await Book.find();
   res.status(200).json({ status: "success", data: books });
 });
 
 // Get a single book by ID
 const getBookById = asyncHandler(async (req, res) => {
+  console.log("getBookById : req", req);
   const book = await Book.findById(req.params.id);
   if (!book) {
     res.status(404);
@@ -19,6 +21,7 @@ const getBookById = asyncHandler(async (req, res) => {
 
 // Create a new book
 const createBook = asyncHandler(async (req, res) => {
+  console.log("createBook : req", req);
   const { title, description, author, category, condition, location, imgUrl } =
     req.body;
 
@@ -50,6 +53,7 @@ const createBook = asyncHandler(async (req, res) => {
 
 // Update a book by ID (field-specific updates supported)
 const updateBook = asyncHandler(async (req, res) => {
+  console.log("updateBook : req", req);
   const book = await Book.findById(req.params.id);
 
   if (!book) {
@@ -71,6 +75,7 @@ const updateBook = asyncHandler(async (req, res) => {
 
 // Delete a specific field of a book by ID
 const deleteBookField = asyncHandler(async (req, res) => {
+  console.log("deleteBookField : req", req);
   const { id, field } = req.params;
 
   const book = await Book.findById(id);
@@ -99,6 +104,7 @@ const deleteBookField = asyncHandler(async (req, res) => {
 
 // Delete a book by ID (updated with findByIdAndDelete)
 const deleteBook = asyncHandler(async (req, res) => {
+  console.log("deleteBook: req", req);
   const book = await Book.findById(req.params.id);
 
   if (!book) {
