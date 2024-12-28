@@ -47,8 +47,21 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="kh.edu.rupp.seavphov.fragment.LoginFragment"
-        android:label="Home Fragment"
+        android:label="Login Fragment"
         tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_LoginFragment_to_SignUpFragment"
+            app:destination="@id/signUpFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="kh.edu.rupp.seavphov.fragment.SignUpFragment"
+        android:label="SignUp Fragment"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signUpFragment_to_LoginFragment"
+            app:destination="@id/loginFragment"/>
     </fragment>
 
     <fragment

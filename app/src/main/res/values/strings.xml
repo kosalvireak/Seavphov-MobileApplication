@@ -10,13 +10,20 @@
 
     <string name="dummy_description">dummy_description</string>
     <string name="description">Seavphov is a helpful web app that works like a donation platform for books. People can list their old books on Seavphov, so that others can easily see what is available and borrow those books for free. @vireak</string>
-    <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="forget_password">Forget Password?</string>
     <string name="don_t_have_account_yet">Don’t have account yet?</string>
+    <string name="already_have_account">Already have an account?</string>
     <string name="sign_up">Sign Up</string>
     <string name="email">Email</string>
+    <string name="login_email">Enter email</string>
+    <string name="password">Password</string>
+    <string name="login_password">Enter password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup_confirmPassword">Enter password again</string>
     <string name="read_more">Read more</string>
+    <string name="username">Username</string>
+    <string name="signup_username">Enter username</string>
 
     <string name="book_title">Book Title</string>
     <string name="book_author">Book Author</string>
