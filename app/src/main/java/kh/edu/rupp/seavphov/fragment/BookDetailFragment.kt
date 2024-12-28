@@ -1,7 +1,9 @@
 package kh.edu.rupp.seavphov.fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,7 @@ import kh.edu.rupp.seavphov.R
 import kh.edu.rupp.seavphov.activity.MainActivity
 import kh.edu.rupp.seavphov.databinding.FragmentBookdetailBinding
 import kh.edu.rupp.seavphov.model.BookDetail
+import kh.edu.rupp.seavphov.model.State
 import kh.edu.rupp.seavphov.viewmodel.BookDetailFragmentViewModel
 
 class BookDetailFragment : Fragment() {
@@ -45,8 +48,19 @@ class BookDetailFragment : Fragment() {
 
         mainActivity?.hideBottomNavigation()
 
-        viewModel.bookDetailState.observe(viewLifecycleOwner) { bookDetail ->
-            displayBookDetail(bookDetail)
+        viewModel.bookDetailState.observe(viewLifecycleOwner) { bookDetailState ->
+            when (bookDetailState.state) {
+                State.loading -> {
+                    Log.d("Seavphov","loading")
+                }
+                State.success -> {
+                    displayBookDetail(bookDetailState.data!!)
+                }
+
+                State.error -> {
+                    showErrorContent()
+                }
+            }
         }
         viewModel.loadBookDetail()
     }
@@ -72,6 +86,11 @@ class BookDetailFragment : Fragment() {
         Picasso.get()
             .load(bookDetail.imgUrl)
             .into(binding.bookImage)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun showErrorContent() {
+        binding.bookTitle.text = "Something went wrong!";
     }
 
 }
