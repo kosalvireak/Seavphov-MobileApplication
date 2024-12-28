@@ -4,36 +4,47 @@ const bookSchema = mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "Please add a title"],
+      required: true,
     },
     description: {
       type: String,
-      required: [true, "Please add a description"],
+      required: true,
     },
     author: {
       type: String,
-      required: [true, "Please add an author"],
+      required: true,
     },
     category: {
       type: String,
-      required: [true, "Please add a category"],
+      required: true,
     },
     condition: {
       type: String,
-      required: [true, "Please add the condition"],
+      required: true,
     },
     location: {
       type: String,
-      required: [true, "Please add the location"],
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
     },
     imgUrl: {
       type: String,
-      required: [true, "Please add an image URL"],
+      required: true,
+    },
+    ownerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // Reference to the User model
+      required: true,
     },
   },
   {
-    timestamps: true,
+    timestamps: true, // Automatically adds `createdAt` and `updatedAt` timestamps
   }
 );
 
-module.exports = mongoose.model("Book", bookSchema);
+const Book = mongoose.model("Book", bookSchema);
+
+module.exports = Book;

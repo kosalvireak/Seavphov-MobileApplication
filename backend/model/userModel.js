@@ -1,20 +1,30 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     gmail: {
       type: String,
-      required: [true, "Please add a Gmail"],
+      required: true,
       unique: true,
     },
     password: {
       type: String,
-      required: [true, "Please add a password"],
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true, // Name is now a required field
+    },
+    imgUrl: {
+      type: String,
+      required: false, // Image URL is optional
+    },
+    token: {
+      type: String,
+      required: false, // Token is optional and can be added when generated
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("User", userSchema);
