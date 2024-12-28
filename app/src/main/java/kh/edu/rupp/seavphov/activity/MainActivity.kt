@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.seavphovLogo.setOnClickListener {
             navController.navigate(R.id.homeFragment)
-            binding.bottomNavigationView.selectedItemId = R.id.menu_home
+            selectHomeNavigation()
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
@@ -55,6 +55,19 @@ class MainActivity : AppCompatActivity() {
             else -> navController.navigate(R.id.loginFragment)
         }
         return true
+    }
+
+    fun selectHomeNavigation(){
+        binding.bottomNavigationView.selectedItemId = R.id.menu_home
+    }
+
+
+    fun hideTopNavigation(){
+        binding.navbarContainer.visibility = View.GONE
+    }
+
+    fun showTopNavigation(){
+        binding.navbarContainer.visibility = View.VISIBLE
     }
 
     fun hideBottomNavigation() {

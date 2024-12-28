@@ -1,5 +1,6 @@
 package kh.edu.rupp.seavphov.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kh.edu.rupp.seavphov.R
+import kh.edu.rupp.seavphov.activity.MainActivity
 import kh.edu.rupp.seavphov.databinding.FragmentSignupBinding
 
 class SignUpFragment : Fragment() {
+
+    private var mainActivity: MainActivity? = null
     private lateinit var binding: FragmentSignupBinding
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // Get reference to MainActivity
+        mainActivity = context as? MainActivity
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        mainActivity?.showBottomNavigation()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,6 +37,13 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        mainActivity?.hideBottomNavigation()
+        mainActivity?.hideTopNavigation()
+
+        binding.backIcon.setOnClickListener {
+            findNavController().navigate(R.id.action_signUpFragment_to_LoginFragment)
+        }
 
         binding.loginButton.setOnClickListener {
             findNavController().navigate(R.id.action_signUpFragment_to_LoginFragment)

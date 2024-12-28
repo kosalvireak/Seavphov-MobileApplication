@@ -3,7 +3,6 @@ package kh.edu.rupp.seavphov.fragment
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,9 +19,7 @@ import kh.edu.rupp.seavphov.viewmodel.BookDetailFragmentViewModel
 
 class BookDetailFragment : Fragment() {
     private var mainActivity: MainActivity? = null
-
     private val viewModel by viewModels<BookDetailFragmentViewModel>()
-
     private lateinit var binding: FragmentBookdetailBinding
 
     override fun onAttach(context: Context) {
@@ -61,6 +58,7 @@ class BookDetailFragment : Fragment() {
                     hideMainLoading()
                     displayBookDetail(bookDetailState.data!!)
                 }
+
                 State.error -> {
                     hideMainLoading()
                     showErrorContent()
@@ -70,11 +68,6 @@ class BookDetailFragment : Fragment() {
         viewModel.loadBookDetail()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        // Show bottom navigation when leaving the fragment
-        mainActivity?.showBottomNavigation()
-    }
 
     override fun onDetach() {
         super.onDetach()
