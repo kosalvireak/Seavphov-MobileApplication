@@ -46,18 +46,23 @@ class BookDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (savedInstanceState == null) {
+            childFragmentManager.beginTransaction()
+                .replace(binding.bookListContainer.id, BookListFragment("Related books!"))
+                .commit()
+        }
+
         mainActivity?.hideBottomNavigation()
 
         viewModel.bookDetailState.observe(viewLifecycleOwner) { bookDetailState ->
             when (bookDetailState.state) {
-                State.loading -> {
-                    Log.d("Seavphov","loading")
-                }
+                State.loading -> showMainLoading()
                 State.success -> {
+                    hideMainLoading()
                     displayBookDetail(bookDetailState.data!!)
                 }
-
                 State.error -> {
+                    hideMainLoading()
                     showErrorContent()
                 }
             }
@@ -86,6 +91,16 @@ class BookDetailFragment : Fragment() {
         Picasso.get()
             .load(bookDetail.imgUrl)
             .into(binding.bookImage)
+    }
+
+    private fun showMainLoading() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.bodySection.visibility = View.GONE
+    }
+
+    private fun hideMainLoading() {
+        binding.progressBar.visibility = View.GONE
+        binding.bodySection.visibility = View.VISIBLE
     }
 
     @SuppressLint("SetTextI18n")

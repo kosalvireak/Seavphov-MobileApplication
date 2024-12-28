@@ -37,6 +37,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (savedInstanceState == null) {
+            childFragmentManager.beginTransaction()
+                .replace(binding.bookListContainer.id, BookListFragment())
+                .commit()
+        }
 
         // Handle Button
         binding.readMoreButton.setOnClickListener {
@@ -108,20 +113,20 @@ class HomeFragment : Fragment() {
             }
         }
 
-        viewModel.booksListState.observe(viewLifecycleOwner) { booksListState ->
-            when (booksListState.state) {
-                State.loading -> hideMainLoading()
-                State.success -> {
-                    hideMainLoading()
-                    displayBooksList(booksListState.data!!)
-                }
-
-                State.error -> {
-                    hideMainLoading()
-                    showErrorContent()
-                }
-            }
-        }
+//        viewModel.booksListState.observe(viewLifecycleOwner) { booksListState ->
+//            when (booksListState.state) {
+//                State.loading -> showMainLoading()
+//                State.success -> {
+//                    hideMainLoading()
+//                    displayBooksList(booksListState.data!!)
+//                }
+//
+//                State.error -> {
+//                    hideMainLoading()
+//                    showErrorContent()
+//                }
+//            }
+//        }
 
 
 
@@ -131,7 +136,7 @@ class HomeFragment : Fragment() {
         viewModel.loadHome();
         viewModel.loadNewestAddition()
         viewModel.loadThisWeekHighlight()
-        viewModel.loadBooksList()
+//        viewModel.loadBooksList()
 
     }
 
@@ -149,11 +154,11 @@ class HomeFragment : Fragment() {
         binding.thisWeekHightlight.adapter = bookAdapter
     }
 
-    private fun displayBooksList(bookList: ArrayList<Book>) {
-        binding.bookListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        bookInfoAdapter = BookInfoAdapter(bookList);
-        binding.bookListRecyclerView.adapter = bookInfoAdapter
-    }
+//    private fun displayBooksList(bookList: ArrayList<Book>) {
+//        binding.bookListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+//        bookInfoAdapter = BookInfoAdapter(bookList);
+//        binding.bookListRecyclerView.adapter = bookInfoAdapter
+//    }
 
     private fun displayCarousel(carousel: Carousel) {
         binding.bookTitle.text = carousel.title

@@ -76,4 +76,9 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="dummy_title">dummy_title</string>
+    <string name="dummy_author">dummy_author</string>
+    <string name="dummy_category">dummy_category</string>
+    <string name="dummy_condition">dummy_condition</string>
+    <string name="dummy_location">dummy_location</string>
 </resources>
