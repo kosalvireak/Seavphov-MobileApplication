@@ -25,16 +25,15 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:src="@drawable/ic_back"
                 android:layout_gravity="start"
                 android:contentDescription="@string/dummy_description" />
 
             <ImageView
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:src="@drawable/seavphov_logo"
-                android:contentDescription="@string/dummy_description" />
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:contentDescription="@string/dummy_description"
+                android:src="@drawable/seavphov_logo" />
 
             <TextView
                 android:id="@+id/login_email"
