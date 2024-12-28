@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:padding="30dp">
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             tools:ignore="UselessParent">
 
             <ImageView
-                android:id="@+id/backicon"
+                android:id="@+id/back_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="16dp"
@@ -37,7 +37,7 @@
 
             <TextView
                 android:id="@+id/login_email"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="@string/email"
@@ -47,7 +47,7 @@
 
             <EditText
                 android:id="@+id/editText_email"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/addbook_roundedcorner_box"
@@ -59,7 +59,7 @@
 
             <TextView
                 android:id="@+id/login_password"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="@string/password"
@@ -69,7 +69,7 @@
 
             <EditText
                 android:id="@+id/editText_password"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/addbook_roundedcorner_box"
@@ -90,14 +90,14 @@
 
             <TextView
                 android:id="@+id/forgetpassword"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/forget_password"
                 android:layout_marginTop="8dp"
                 android:textAlignment="center"/>
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:text="@string/don_t_have_account_yet"
                 android:layout_marginTop="8dp"
@@ -105,7 +105,7 @@
 
             <TextView
                 android:id="@+id/signupButton"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:text="@string/sign_up"
                 android:textColor="@color/seavphov_secondary"
