@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/seavphov_background"
+    android:background="@color/white"
     android:orientation="vertical"
     android:padding="30dp">
 
@@ -31,39 +31,55 @@
             android:src="@drawable/seavphov_logo"
             android:contentDescription="@string/dummy_description" />
 
+        <TextView
+            android:id="@+id/login_email"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/email"
+            android:textColor="@color/gray_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/editText_email"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:background="@color/gray_text"
-            android:hint="@string/email"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/addbook_roundedcorner_box"
+            android:hint="@string/login_email"
             android:inputType="text"
-            tools:ignore="TextFields"
-            android:layout_marginBottom="10dp" />
+            android:textSize="12sp"
+            android:padding="8dp"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/login_password"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/password"
+            android:textColor="@color/gray_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/editText_password"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:background="@color/gray_text"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/addbook_roundedcorner_box"
+            android:hint="@string/login_password"
+            android:inputType="text"
+            android:textSize="12sp"
+            android:padding="8dp"
+            tools:ignore="TextFields" />
 
-<!--        <Button-->
-<!--            android:id="@+id/login_button"-->
-<!--            android:layout_width="250dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:backgroundTint="@color/seavphov_primary"-->
-<!--            android:text="@string/login"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:background="@drawable/rounded_button"/>-->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_button"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:padding="10sp"
+            android:padding="8dp"
             android:background="@drawable/less_rounded_corner"
             android:text="@string/login"
             android:textColor="@android:color/white" />
