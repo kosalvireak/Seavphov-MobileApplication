@@ -18,6 +18,13 @@
     <string name="email">Email</string>
     <string name="read_more">Read more</string>
 
+    <string name="book_title">Book Title</string>
+    <string name="book_author">Book Author</string>
+    <string name="book_condition">Condition</string>
+    <string name="book_category">Category</string>
+    <string name="book_description">Description</string>
+    <string name="book_location">Location</string>
+
     <string name="addBook_title">Enter title</string>
     <string name="addBook_author">Enter author</string>
     <string name="addBook_condition">SELECT CONDITION</string>
@@ -26,7 +33,7 @@
     <string name="addBook_location">Enter location</string>
 
     <string name="view_more">View More ></string>
-    <string name="book_description">test Twelve-year-old Percy Jackson is on the most dangerous quest of his life. With the help of a satyr and a daughter of Athena, Percy must...</string>
+<!--    <string name="book_description">test Twelve-year-old Percy Jackson is on the most dangerous quest of his life. With the help of a satyr and a daughter of Athena, Percy must...</string>-->
     <string name="the_lightning_thief">test The Lightning Thief </string>
     <string name="background_image">Background Image</string>
     <string name="this_week_highlight">This Week\'s Highlight!</string>
