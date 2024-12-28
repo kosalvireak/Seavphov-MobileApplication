@@ -2,16 +2,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/seavphov_primary">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/appBarLayout"
@@ -22,7 +27,9 @@
                     android:id="@+id/searchBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/fantasy" />
+                    android:background="@color/white"
+                    android:hint="@string/search"
+                    app:titleTextColor="@color/gray_text"/>
             </com.google.android.material.appbar.AppBarLayout>
 
             <com.google.android.material.search.SearchView
@@ -33,7 +40,72 @@
                 <!-- Content for search suggestions/results -->
             </com.google.android.material.search.SearchView>
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="24sp"
+            android:textColor="@color/gray_text"
+            android:textStyle="bold"
+            android:text="@string/category"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="ScrollViewCount"
+                android:paddingVertical="10dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fantasyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/primary_button"
+                    android:text="@string/fantasy"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@android:color/white" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/historyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/primary_button"
+                    android:text="@string/history"
+                    android:textSize="12sp"
+                    android:layout_marginHorizontal="5dp"
+                    android:textColor="@android:color/white" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/horrorButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/primary_button"
+                    android:text="@string/horror"
+                    android:textSize="12sp"
+                    android:layout_marginHorizontal="5dp"
+                    android:textColor="@android:color/white" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/romanceButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/primary_button"
+                    android:text="@string/romance"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/seeAllButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/primary_button"
+                    android:text="@string/see_all"
+                    android:textSize="12sp"
+                    android:layout_marginHorizontal="5dp"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
     </LinearLayout>
 
