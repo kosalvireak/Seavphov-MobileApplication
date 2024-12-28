@@ -17,6 +17,10 @@ app.use(express.urlencoded({ extended: false }));
 
 // Auth routes
 app.use("/api/auth", require("./routes/authRoutes"));
+
+// Book routes
+app.use("/api/books", require("./routes/bookRoutes"));
+
 // Error handler middleware
 app.use(errorHandler);
 
