@@ -1,5 +1,6 @@
 package kh.edu.rupp.seavphov.fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,13 +14,12 @@ import kh.edu.rupp.seavphov.R
 import kh.edu.rupp.seavphov.activity.MainActivity
 import kh.edu.rupp.seavphov.databinding.FragmentBookdetailBinding
 import kh.edu.rupp.seavphov.model.BookDetail
+import kh.edu.rupp.seavphov.model.State
 import kh.edu.rupp.seavphov.viewmodel.BookDetailFragmentViewModel
 
 class BookDetailFragment : Fragment() {
     private var mainActivity: MainActivity? = null
-
     private val viewModel by viewModels<BookDetailFragmentViewModel>()
-
     private lateinit var binding: FragmentBookdetailBinding
 
     override fun onAttach(context: Context) {
@@ -43,19 +43,31 @@ class BookDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (savedInstanceState == null) {
+            childFragmentManager.beginTransaction()
+                .replace(binding.bookListContainer.id, BookListFragment("Related books!"))
+                .commit()
+        }
+
         mainActivity?.hideBottomNavigation()
 
-        viewModel.bookDetailState.observe(viewLifecycleOwner) { bookDetail ->
-            displayBookDetail(bookDetail)
+        viewModel.bookDetailState.observe(viewLifecycleOwner) { bookDetailState ->
+            when (bookDetailState.state) {
+                State.loading -> showMainLoading()
+                State.success -> {
+                    hideMainLoading()
+                    displayBookDetail(bookDetailState.data!!)
+                }
+
+                State.error -> {
+                    hideMainLoading()
+                    showErrorContent()
+                }
+            }
         }
         viewModel.loadBookDetail()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        // Show bottom navigation when leaving the fragment
-        mainActivity?.showBottomNavigation()
-    }
 
     override fun onDetach() {
         super.onDetach()
@@ -72,6 +84,21 @@ class BookDetailFragment : Fragment() {
         Picasso.get()
             .load(bookDetail.imgUrl)
             .into(binding.bookImage)
+    }
+
+    private fun showMainLoading() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.bodySection.visibility = View.GONE
+    }
+
+    private fun hideMainLoading() {
+        binding.progressBar.visibility = View.GONE
+        binding.bodySection.visibility = View.VISIBLE
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun showErrorContent() {
+        binding.bookTitle.text = "Something went wrong!";
     }
 
 }

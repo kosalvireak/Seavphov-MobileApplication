@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kh.edu.rupp.seavphov.R
 import kh.edu.rupp.seavphov.activity.MainActivity
-import kh.edu.rupp.seavphov.databinding.FragmentLoginBinding
+import kh.edu.rupp.seavphov.databinding.FragmentSignupBinding
 
-class LoginFragment : Fragment() {
+class SignUpFragment : Fragment() {
 
     private var mainActivity: MainActivity? = null
-    private lateinit var binding: FragmentLoginBinding;
+    private lateinit var binding: FragmentSignupBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -22,13 +22,17 @@ class LoginFragment : Fragment() {
         mainActivity = context as? MainActivity
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        mainActivity?.showBottomNavigation()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.getRoot()
+        binding = FragmentSignupBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,15 +42,12 @@ class LoginFragment : Fragment() {
         mainActivity?.hideTopNavigation()
 
         binding.backIcon.setOnClickListener {
-            findNavController().navigate(R.id.action_LoginFragment_to_HomeFragment);
-            mainActivity?.showTopNavigation()
-            mainActivity?.showBottomNavigation()
-            mainActivity?.selectHomeNavigation()
+            findNavController().navigate(R.id.action_signUpFragment_to_LoginFragment)
         }
-        binding.signupButton.setOnClickListener {
-            findNavController().navigate(R.id.action_LoginFragment_to_SignUpFragment)
+
+        binding.loginButton.setOnClickListener {
+            findNavController().navigate(R.id.action_signUpFragment_to_LoginFragment)
         }
     }
-
 
 }
