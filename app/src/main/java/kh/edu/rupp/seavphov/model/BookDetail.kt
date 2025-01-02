@@ -1,6 +1,6 @@
 package kh.edu.rupp.seavphov.model
 
-data class BookDetail (
+data class BookDetail(
     val title: String,
     var description: String,
     var author: String,

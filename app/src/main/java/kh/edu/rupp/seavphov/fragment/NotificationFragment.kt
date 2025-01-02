@@ -11,7 +11,11 @@ import kh.edu.rupp.seavphov.databinding.FragmentNotificationBinding
 
 class NotificationFragment : Fragment() {
     private var binding: FragmentNotificationBinding? = null
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentNotificationBinding.inflate(inflater, container, false)
         return binding!!.getRoot()
     }
