@@ -16,32 +16,43 @@ const getUserFromToken = async (token) => {
 
 // Get all books
 const getBooks = asyncHandler(async (req, res) => {
-  const books = await Book.find().populate("owner", "name imgUrl");
-  res.status(200).json({ status: "success", data: books });
+  try {
+    const books = await Book.find().populate("ownerId", "name imgUrl");
+
+    res.status(200).json({
+      status: "success",
+      message: "Books retrieved successfully",
+      data: books,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "failed",
+      message: "Error retrieving books",
+      error: error.message,
+    });
+  }
 });
 
 // Get a single book by ID
 const getBookById = asyncHandler(async (req, res) => {
-  let book = await Book.findById(req.params.id);
+  const book = await Book.findById(req.params.id).populate(
+    "ownerId",
+    "name imgUrl"
+  );
 
   if (!book) {
-    res.status(404);
-    throw new Error("Book not found");
+    res.status(404).json({
+      status: "failed",
+      message: "Book not found",
+    });
+    return;
   }
 
-  const owner = await User.findById(book.ownerId);
-
-  const ownerInfo = {
-    name: owner.name,
-    imgUrl: owner.imgUrl,
-  };
-
-  const bookWithOwnerDetails = {
-    ...book.toObject(), // Convert Mongoose document to plain object
-    owner: ownerInfo,
-  };
-
-  res.status(200).json({ status: "success", data: bookWithOwnerDetails });
+  res.status(200).json({
+    status: "success",
+    message: "Book retrieved successfully",
+    data: book,
+  });
 });
 
 // Create a new book
@@ -57,7 +68,6 @@ const createBook = asyncHandler(async (req, res) => {
     imgUrl,
   } = req.body;
 
-  // Validate required fields
   if (
     !title ||
     !description ||
@@ -68,22 +78,25 @@ const createBook = asyncHandler(async (req, res) => {
     !imgUrl ||
     !price
   ) {
-    res.status(400);
-    throw new Error("Please provide all required fields");
+    res.status(400).json({
+      status: "failed",
+      message: "Please provide all required fields",
+    });
+    return;
   }
 
-  console.log("req", req.headers);
-  // Verify and get the authenticated user from the token
   const token = req.headers.authorization;
 
   if (!token) {
-    res.status(401);
-    throw new Error("No token, authorization denied");
+    res.status(401).json({
+      status: "failed",
+      message: "No token, authorization denied",
+    });
+    return;
   }
 
   const user = await getUserFromToken(token);
 
-  // Create the new book and associate it with the authenticated user
   const newBook = await Book.create({
     title,
     description,
@@ -93,13 +106,13 @@ const createBook = asyncHandler(async (req, res) => {
     location,
     price,
     imgUrl,
-    ownerId: user._id, // Set the book ownerId to the authenticated user
+    ownerId: user._id,
   });
 
   res.status(201).json({
     status: "success",
-    data: newBook,
     message: "Book created successfully",
+    data: newBook,
   });
 });
 
@@ -108,34 +121,41 @@ const updateBook = asyncHandler(async (req, res) => {
   const book = await Book.findById(req.params.id);
 
   if (!book) {
-    res.status(404);
-    throw new Error("Book not found");
+    res.status(404).json({
+      status: "failed",
+      message: "Book not found",
+    });
+    return;
   }
 
-  // Verify and get the authenticated user from the token
   const token =
-    req.headers.authorization && req.headers.authorization.split(" ")[1]; // Get token from headers
+    req.headers.authorization && req.headers.authorization.split(" ")[1];
   if (!token) {
-    res.status(401);
-    throw new Error("No token, authorization denied");
+    res.status(401).json({
+      status: "failed",
+      message: "No token, authorization denied",
+    });
+    return;
   }
 
   const user = await getUserFromToken(token);
 
-  // Check if the authenticated user is the owner of the book
-  if (book.owner.toString() !== user._id.toString()) {
-    res.status(403);
-    throw new Error("Not authorized to update this book");
+  if (book.ownerId.toString() !== user._id.toString()) {
+    res.status(403).json({
+      status: "failed",
+      message: "Not authorized to update this book",
+    });
+    return;
   }
 
-  // Update the book fields
-  const fieldsToUpdate = req.body;
-  Object.keys(fieldsToUpdate).forEach((field) => {
-    book[field] = fieldsToUpdate[field];
-  });
-
+  Object.assign(book, req.body);
   const updatedBook = await book.save();
-  res.status(200).json({ status: "success", data: updatedBook });
+
+  res.status(200).json({
+    status: "success",
+    message: "Book updated successfully",
+    data: updatedBook,
+  });
 });
 
 // Delete a book by ID
@@ -143,45 +163,39 @@ const deleteBook = asyncHandler(async (req, res) => {
   const book = await Book.findById(req.params.id);
 
   if (!book) {
-    res.status(404);
-    throw new Error("Book not found");
+    res.status(404).json({
+      status: "failed",
+      message: "Book not found",
+    });
+    return;
   }
 
-  // Verify and get the authenticated user from the token
   const token =
-    req.headers.authorization && req.headers.authorization.split(" ")[1]; // Get token from headers
+    req.headers.authorization && req.headers.authorization.split(" ")[1];
   if (!token) {
-    res.status(401);
-    throw new Error("No token, authorization denied");
+    res.status(401).json({
+      status: "failed",
+      message: "No token, authorization denied",
+    });
+    return;
   }
 
   const user = await getUserFromToken(token);
 
-  // Check if the authenticated user is the owner of the book
-  if (book.owner.toString() !== user._id.toString()) {
-    res.status(403);
-    throw new Error("Not authorized to delete this book");
+  if (book.ownerId.toString() !== user._id.toString()) {
+    res.status(403).json({
+      status: "failed",
+      message: "Not authorized to delete this book",
+    });
+    return;
   }
 
   await book.remove();
-  res
-    .status(200)
-    .json({ status: "success", message: "Book deleted successfully" });
-});
 
-// Get books posted by a specific owner
-const getBooksByOwner = asyncHandler(async (req, res) => {
-  const books = await Book.find({ owner: req.params.ownerId }).populate(
-    "owner",
-    "name imgUrl"
-  );
-
-  if (!books.length) {
-    res.status(404);
-    throw new Error("No books found for this owner");
-  }
-
-  res.status(200).json({ status: "success", data: books });
+  res.status(200).json({
+    status: "success",
+    message: "Book deleted successfully",
+  });
 });
 
 module.exports = {
@@ -190,5 +204,4 @@ module.exports = {
   createBook,
   updateBook,
   deleteBook,
-  getBooksByOwner,
 };

@@ -1,4 +1,3 @@
-// routes/bookRoutes.js
 const express = require("express");
 const {
   getBooks,
@@ -11,7 +10,6 @@ const {
 const router = express.Router();
 
 router.route("/").get(getBooks).post(createBook);
-
 router.route("/:id").get(getBookById).put(updateBook).delete(deleteBook);
 
 module.exports = router;
