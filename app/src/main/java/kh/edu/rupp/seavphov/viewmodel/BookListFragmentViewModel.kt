@@ -18,19 +18,19 @@ class BookListFragmentViewModel : ViewModel() {
     val booksListState: LiveData<ApiState<ArrayList<Book>>> get() = _booksListState;
     //    for BooksList
 
-    fun loadBooksList(){
+    fun loadBooksList() {
         val apiService = ApiManager.getApiService()
         viewModelScope.launch {
             val response = apiService.loadBooksList()
             try {
-                if(response.isSuccess()){
-                    Log.d("Seavphov","Load ThisWeekHighlight Success")
+                if (response.isSuccess()) {
+                    Log.d("Seavphov", "Load ThisWeekHighlight Success")
                     _booksListState.postValue(ApiState(State.success, response.data))
                 } else {
-                    Log.d("Seavphov","Load ThisWeekHighlight Error")
+                    Log.d("Seavphov", "Load ThisWeekHighlight Error")
                     _booksListState.postValue(ApiState(State.error, null))
                 }
-            }catch (ex: Exception){
+            } catch (ex: Exception) {
                 Log.e("Seavphov", "Error while loading ThisWeekHighlight: $ex")
             }
         }

@@ -1,6 +1,6 @@
 package kh.edu.rupp.seavphov.model
 
-data class ApiState<T> (
+data class ApiState<T>(
     val state: State,
     val data: T?
 )

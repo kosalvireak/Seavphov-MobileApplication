@@ -15,7 +15,7 @@ import kh.edu.rupp.seavphov.model.State
 import kh.edu.rupp.seavphov.viewmodel.BookListFragmentViewModel
 
 class BookListFragment(var title: String = "You may also like") : Fragment() {
-    private val _title : String = title;
+    private val _title: String = title;
     private val viewModel by viewModels<BookListFragmentViewModel>()
     private lateinit var binding: FragmentBookListBinding;
     private var bookInfoAdapter: BookInfoAdapter? = null

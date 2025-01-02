@@ -9,7 +9,11 @@ import kh.edu.rupp.seavphov.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
     private var binding: FragmentProfileBinding? = null
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding!!.getRoot()
     }
