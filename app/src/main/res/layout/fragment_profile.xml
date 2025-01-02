@@ -16,7 +16,7 @@
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_margin="16dp" />
+        android:layout_margin="16dp" />
 
     <!-- Follower and Following Section -->
 
@@ -25,15 +25,15 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/circle_pf"
         android:clipToOutline="true"
         android:scaleType="centerCrop"
         android:src="@drawable/seavphov_profile"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/backArrow"
-        app:layout_marginTop="16dp" />
+        app:layout_constraintEnd_toStartOf="@id/userName"/>
 
     <TextView
         android:id="@+id/userName"
@@ -48,9 +48,10 @@
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toRightOf="@id/profilePicture"
-        app:layout_marginTop="8dp"
+        android:layout_marginTop="8dp"
         tools:layout_editor_absoluteY="59dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toEndOf="@id/profilePicture"
+        app:layout_constraintTop_toTopOf="@id/profilePicture" />
 
     <LinearLayout
         android:id="@+id/followerStats"
@@ -59,7 +60,7 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/userName"
         app:layout_constraintStart_toRightOf="@id/profilePicture"
-        app:layout_marginTop="8dp">
+        android:layout_marginTop="8dp">
 
     </LinearLayout>
 
@@ -71,9 +72,9 @@
         app:layout_constraintTop_toBottomOf="@id/followerStats"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_marginTop="16dp"
-        app:layout_marginStart="16dp"
-        app:layout_marginEnd="16dp">
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
 
     </LinearLayout>
 
@@ -95,8 +96,7 @@
         android:src="@drawable/ic_mail"
         app:layout_constrationRight_toLeftOf="@string/email"
         tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="171dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="171dp" />
 
     <TextView
         android:id="@+id/following"
@@ -106,7 +106,6 @@
         android:textColor="#000000"
         android:textSize="12sp"
         android:textAlignment="center"
-        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="237dp"
         tools:layout_editor_absoluteY="86dp" />
 
@@ -118,7 +117,6 @@
         android:text="250K Followers"
         android:textColor="#000000"
         android:textSize="12sp"
-        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="86dp" />
 
@@ -130,8 +128,7 @@
         android:text="012 345 678"
         android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@id/mail"
-        tools:layout_editor_absoluteX="71dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteX="71dp" />
 
     <ImageView
         android:layout_width="24dp"
@@ -150,15 +147,13 @@
         android:text="I like reading books, and playing games."
         android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@id/phone"
-        tools:layout_editor_absoluteX="71dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteX="71dp" />
 
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_heart"
         app:layout_constrationRight_toEndOf="@string/phone"
-        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="37dp"
         tools:layout_editor_absoluteY="228dp" />
 
