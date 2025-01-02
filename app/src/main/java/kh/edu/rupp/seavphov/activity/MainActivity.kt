@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_category -> navController.navigate(R.id.categoryFragment)
             R.id.menu_add_book -> navController.navigate(R.id.addBookFragment)
             R.id.menu_notification -> navController.navigate(R.id.notificationFragment)
-            else -> navController.navigate(R.id.loginFragment)
+            else -> navController.navigate(R.id.profileFragment)
         }
         return true
     }

@@ -81,4 +81,13 @@
         tools:layout="@layout/fragment_notification">
 
     </fragment>
+
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="kh.edu.rupp.seavphov.fragment.ProfileFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_profile">
+
+    </fragment>
 </navigation>
