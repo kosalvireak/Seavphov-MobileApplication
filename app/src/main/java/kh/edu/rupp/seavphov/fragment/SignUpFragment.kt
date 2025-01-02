@@ -26,12 +26,13 @@ class SignUpFragment : Fragment() {
         super.onDetach()
         mainActivity?.showBottomNavigation()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSignupBinding.inflate(inflater,container,false)
+        binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding.root
     }
 

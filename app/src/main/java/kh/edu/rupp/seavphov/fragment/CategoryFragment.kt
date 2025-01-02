@@ -9,7 +9,11 @@ import kh.edu.rupp.seavphov.databinding.FragmentCategoryBinding
 
 class CategoryFragment : Fragment() {
     private lateinit var binding: FragmentCategoryBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentCategoryBinding.inflate(inflater, container, false)
         return binding.getRoot()
     }
@@ -25,9 +29,11 @@ class CategoryFragment : Fragment() {
             searchView.show()        // Expand SearchView
         }
 
-        arguments?.let { args -> {
-            val searchParams = args.getString("searchParams")
-            searchBar.hint=searchParams
-        } }
+        arguments?.let { args ->
+            {
+                val searchParams = args.getString("searchParams")
+                searchBar.hint = searchParams
+            }
+        }
     }
 }

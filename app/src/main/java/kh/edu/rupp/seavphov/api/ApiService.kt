@@ -15,7 +15,7 @@ interface ApiService {
     suspend fun loadBooks(): List<Book>
 
     @GET("bookDetail.json")
-    suspend fun loadBookDetail() : ApiResponse<BookDetail>
+    suspend fun loadBookDetail(): ApiResponse<BookDetail>
 
     @GET("NewestAddition.json")
     suspend fun loadNewestAddition(): ApiResponse<ArrayList<Book>>

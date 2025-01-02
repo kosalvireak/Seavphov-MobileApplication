@@ -57,16 +57,16 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    fun selectHomeNavigation(){
+    fun selectHomeNavigation() {
         binding.bottomNavigationView.selectedItemId = R.id.menu_home
     }
 
 
-    fun hideTopNavigation(){
+    fun hideTopNavigation() {
         binding.navbarContainer.visibility = View.GONE
     }
 
-    fun showTopNavigation(){
+    fun showTopNavigation() {
         binding.navbarContainer.visibility = View.VISIBLE
     }
 

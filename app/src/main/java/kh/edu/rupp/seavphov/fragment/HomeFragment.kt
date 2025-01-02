@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.squareup.picasso.Picasso
 import kh.edu.rupp.seavphov.R
@@ -127,7 +126,6 @@ class HomeFragment : Fragment() {
 //                }
 //            }
 //        }
-
 
 
         showCarouselLoading()

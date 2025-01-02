@@ -8,11 +8,17 @@ import com.squareup.picasso.Picasso
 import kh.edu.rupp.seavphov.databinding.ActivityHolderBookInfoBinding
 import kh.edu.rupp.seavphov.model.Book
 
-class BookInfoAdapter(private val bookList: List<Book>) : RecyclerView.Adapter<BookInfoAdapter.BookViewHolder>() {
-    class BookViewHolder(val binding: ActivityHolderBookInfoBinding) : RecyclerView.ViewHolder(binding.root)
+class BookInfoAdapter(private val bookList: List<Book>) :
+    RecyclerView.Adapter<BookInfoAdapter.BookViewHolder>() {
+    class BookViewHolder(val binding: ActivityHolderBookInfoBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val binding = ActivityHolderBookInfoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ActivityHolderBookInfoBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return BookViewHolder(binding)
     }
 

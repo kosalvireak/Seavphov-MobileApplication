@@ -7,7 +7,7 @@ object ApiManager {
     private var apiService: ApiService? = null
 
     fun getApiService(): ApiService {
-        if(apiService == null){
+        if (apiService == null) {
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com/kosalvireak/Seavphov-MobileApplication/master/dummy/")
                 .addConverterFactory(GsonConverterFactory.create())
