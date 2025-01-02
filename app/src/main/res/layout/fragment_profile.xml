@@ -5,29 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
-
-    <ImageView
-        android:id="@+id/backArrow"
-        android:layout_width="21dp"
-        android:layout_height="23dp"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="#F5F5F5"
+    android:padding="30dp">
 
     <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
         android:background="@drawable/circle_pf"
         android:clipToOutline="true"
         android:scaleType="centerCrop"
         android:src="@drawable/seavphov_profile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backArrow" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/userName"
