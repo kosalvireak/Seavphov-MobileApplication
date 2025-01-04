@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 import kh.edu.rupp.seavphov.R
 import kh.edu.rupp.seavphov.activity.MainActivity
 import kh.edu.rupp.seavphov.databinding.FragmentBookdetailBinding
-import kh.edu.rupp.seavphov.model.BookDetail
+import kh.edu.rupp.seavphov.model.Book
 import kh.edu.rupp.seavphov.model.State
 import kh.edu.rupp.seavphov.viewmodel.BookDetailFragmentViewModel
 
@@ -21,6 +22,7 @@ class BookDetailFragment : Fragment() {
     private var mainActivity: MainActivity? = null
     private val viewModel by viewModels<BookDetailFragmentViewModel>()
     private lateinit var binding: FragmentBookdetailBinding
+    val args: BookDetailFragmentArgs by navArgs()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,14 +36,14 @@ class BookDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentBookdetailBinding.inflate(inflater, container, false)
-        binding.backArrow.setOnClickListener() {
-            findNavController().navigate(R.id.action_bookDetailFragment_to_homeFragment)
-        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.loadBookDetail(args.bookId)
+
 
         if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
@@ -65,16 +67,16 @@ class BookDetailFragment : Fragment() {
                 }
             }
         }
-        viewModel.loadBookDetail()
+
+        //  Listener
+
+        binding.backArrow.setOnClickListener() {
+            mainActivity?.showBottomNavigation()
+            findNavController().navigate(R.id.action_bookDetailFragment_to_homeFragment)
+        }
     }
 
-
-    override fun onDetach() {
-        super.onDetach()
-        mainActivity?.showBottomNavigation()
-    }
-
-    private fun displayBookDetail(bookDetail: BookDetail) {
+    private fun displayBookDetail(bookDetail: Book) {
         binding.bookTitle.text = bookDetail.title
         binding.bookDescription.text = bookDetail.description
         binding.bookAuthor.text = bookDetail.author
@@ -84,6 +86,11 @@ class BookDetailFragment : Fragment() {
         Picasso.get()
             .load(bookDetail.imgUrl)
             .into(binding.bookImage)
+
+        Picasso.get()
+            .load(bookDetail.ownerId.imgUrl)
+            .into(binding.bookOwnerProfileImage)
+        binding.bookOwnerName.text = bookDetail.ownerId.name
     }
 
     private fun showMainLoading() {

@@ -46,13 +46,14 @@
                     app:layout_constraintStart_toEndOf="@+id/backArrow"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0">
+
                 <ImageView
                     android:id="@+id/bookImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/seavphov_dummy"
                     android:background="@color/seavphov_background"
-                    android:scaleType="centerInside"/>
+                    android:scaleType="fitCenter"/>
 
                 </androidx.cardview.widget.CardView>
 
@@ -179,7 +180,7 @@
                         app:cardElevation="4dp">
 
                         <ImageView
-                            android:id="@+id/profileImage"
+                            android:id="@+id/bookOwnerProfileImage"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@drawable/seavphov_profile"
@@ -196,7 +197,7 @@
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/ownerName"
+                            android:id="@+id/bookOwnerName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Kry Sokuntheary"

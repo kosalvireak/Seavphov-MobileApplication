@@ -16,7 +16,6 @@ import kh.edu.rupp.seavphov.adapter.BookAdapter
 import kh.edu.rupp.seavphov.adapter.BookInfoAdapter
 import kh.edu.rupp.seavphov.databinding.FragmentHomeBinding
 import kh.edu.rupp.seavphov.model.Book
-import kh.edu.rupp.seavphov.model.Carousel
 import kh.edu.rupp.seavphov.model.State
 import kh.edu.rupp.seavphov.viewmodel.HomeFragmentViewModel
 
@@ -25,6 +24,8 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding;
     private var bookAdapter: BookAdapter? = null;
     private var bookInfoAdapter: BookInfoAdapter? = null
+
+    lateinit var carouselId: String;
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,7 +46,8 @@ class HomeFragment : Fragment() {
 
         // Handle Button
         binding.readMoreButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_bookDetailFragment)
+            val action = HomeFragmentDirections.actionHomeFragmentToBookDetailFragment(carouselId)
+            findNavController().navigate(action)
         }
 
         binding.fantasyButton.setOnClickListener {
@@ -68,7 +70,7 @@ class HomeFragment : Fragment() {
 
 
         // observe data in view model
-        viewModel.homeState.observe(viewLifecycleOwner) { carouselState ->
+        viewModel.carouselState.observe(viewLifecycleOwner) { carouselState ->
             when (carouselState.state) {
                 State.loading -> showCarouselLoading()
                 State.success -> {
@@ -113,29 +115,12 @@ class HomeFragment : Fragment() {
             }
         }
 
-//        viewModel.booksListState.observe(viewLifecycleOwner) { booksListState ->
-//            when (booksListState.state) {
-//                State.loading -> showMainLoading()
-//                State.success -> {
-//                    hideMainLoading()
-//                    displayBooksList(booksListState.data!!)
-//                }
-//
-//                State.error -> {
-//                    hideMainLoading()
-//                    showErrorContent()
-//                }
-//            }
-//        }
-
-
         showCarouselLoading()
         showMainLoading()
         //Forward event to View Model
-        viewModel.loadHome();
+        viewModel.loadCarousel();
         viewModel.loadNewestAddition()
         viewModel.loadThisWeekHighlight()
-//        viewModel.loadBooksList()
 
     }
 
@@ -159,7 +144,9 @@ class HomeFragment : Fragment() {
 //        binding.bookListRecyclerView.adapter = bookInfoAdapter
 //    }
 
-    private fun displayCarousel(carousel: Carousel) {
+    private fun displayCarousel(carousel: Book) {
+        carouselId = carousel._id
+
         Toast.makeText(context, "Carousel fetch success", Toast.LENGTH_SHORT).show()
         binding.bookTitle.text = carousel.title
         binding.bookDescription.text = carousel.description

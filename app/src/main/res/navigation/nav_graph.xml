@@ -17,9 +17,8 @@
             android:id="@+id/action_homeFragment_to_bookDetailFragment"
             app:destination="@id/bookDetailFragment">
             <argument
-                android:name="hideBottomNav"
-                app:argType="boolean"
-                android:defaultValue="true"/>
+                android:name="bookId"
+                app:argType="string"/>
         </action>
     </fragment>
 
@@ -36,9 +35,8 @@
         android:label="Book Detail Fragment"
         tools:layout="@layout/fragment_bookdetail">
         <argument
-            android:name="hideBottomNav"
-            app:argType="boolean"
-            android:defaultValue="true"/>
+            android:name="bookId"
+            app:argType="string"/>
         <action
             android:id="@+id/action_bookDetailFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
