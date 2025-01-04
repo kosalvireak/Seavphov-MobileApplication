@@ -9,4 +9,5 @@
     <color name="seavphov_background">#F1F1F1</color>
     <color name="seavphov_selected_green">#39664E</color>
     <color name="seavphov_graybox">#8F8E8E</color>
+    <color name="seavphov_selected_background">#fbbe63</color>
 </resources>

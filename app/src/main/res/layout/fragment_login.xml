@@ -22,12 +22,12 @@
 
             <ImageView
                 android:id="@+id/back_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:contentDescription="@string/dummy_description" />
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/dummy_description"
+                android:src="@drawable/ic_back" />
 
             <ImageView
                 android:layout_width="150dp"

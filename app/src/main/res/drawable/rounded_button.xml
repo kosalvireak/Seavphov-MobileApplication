@@ -3,5 +3,5 @@
     <solid android:color="@color/seavphov_primary"/> <!-- Blue background -->
 
     <!-- Set the corner radius for rounding -->
-    <corners android:radius="16dp"/> <!-- Rounded corners with a 16dp radius -->
+    <corners android:radius="12dp"/> <!-- Rounded corners with a 16dp radius -->
 </shape>

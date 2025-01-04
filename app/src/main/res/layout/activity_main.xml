@@ -50,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:labelVisibilityMode="selected"
-        app:menu="@menu/bottom_menu_landing" />
+        app:menu="@menu/bottom_menu_landing"
+        app:itemIconTint="@color/nav_item_selector"
+        app:itemTextColor="@color/nav_item_selector"/>
 
 </LinearLayout>
