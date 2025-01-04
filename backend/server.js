@@ -15,6 +15,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Import and use the filter routes
+const filterRoutes = require("./routes/filterRoutes"); // Import filter routes
+app.use("/api/books/filter", filterRoutes); // Use filter routes
+
 // Auth routes
 app.use("/api/auth", require("./routes/authRoutes"));
 
