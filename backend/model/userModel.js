@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: false, // Token is optional and can be added when generated
     },
+    bio: {
+      type: String,
+      default: null, // Nullable by default
+    },
   },
   { timestamps: true }
 );

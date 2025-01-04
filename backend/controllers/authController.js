@@ -1,6 +1,10 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../model/userModel");
+const ApiResponse = require("../utils/ApiResponse"); // Import the ApiResponse class
+
+const defaultProfileUrl =
+  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 
 // Utility function to generate JWT token
 const generateToken = (userId) => {
@@ -9,173 +13,139 @@ const generateToken = (userId) => {
   });
 };
 
+// Utility function to extract name from email
+const splitBeforeAt = (email) => {
+  const atIndex = email.indexOf("@");
+  if (atIndex === -1) {
+    return email;
+  }
+  return email.substring(0, atIndex);
+};
+
 // Register a new user
 const registerUser = async (req, res) => {
-  const { gmail, password, confirmPassword, name, imgUrl } = req.body;
+  const { gmail, password, confirmPassword } = req.body;
 
   try {
-    // Check if all fields are provided
-    if (!gmail || !password || !confirmPassword || !name) {
-      return res.status(400).json({ message: "Please fill all fields" });
+    if (!gmail || !password || !confirmPassword) {
+      return res
+        .status(400)
+        .json(new ApiResponse(400, "Please fill all fields"));
     }
 
-    // Check if passwords match
     if (password !== confirmPassword) {
-      return res.status(400).json({ message: "Passwords do not match" });
+      return res
+        .status(400)
+        .json(new ApiResponse(400, "Passwords do not match"));
     }
 
-    // Check if user already exists
     const userExists = await User.findOne({ gmail });
     if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
+      return res
+        .status(400)
+        .json(new ApiResponse(400, "User already exists. Please login!"));
     }
 
-    // Hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create new user
     const user = await User.create({
       gmail,
       password: hashedPassword,
-      name,
-      imgUrl, // Add the imgUrl field
+      name: splitBeforeAt(gmail),
+      imgUrl: defaultProfileUrl,
     });
 
-    // Generate token
     const token = generateToken(user._id);
-
-    // Save token to the user document
     user.token = token;
     await user.save();
 
-    // Return user data and token
-    res.status(201).json({
-      id: user._id,
-      gmail: user.gmail,
-      name: user.name,
-      imgUrl: user.imgUrl,
-      token,
-    });
-  } catch (error) {
-    res.status(500).json({ message: "Server error, please try again" });
-  }
-};
-
-// Login user
-const loginUser = async (req, res) => {
-  const { gmail, password } = req.body;
-
-  try {
-    // Find user by email (gmail)
-    const user = await User.findOne({ gmail });
-    if (!user) {
-      return res
-        .status(400)
-        .json({ message: "Invalid credentials. Please Register first." });
-    }
-
-    // Compare password
-    if (await bcrypt.compare(password, user.password)) {
-      const token = generateToken(user._id);
-
-      // Save token to user document
-      user.token = token;
-      await user.save();
-
-      // Return user data and token
-      res.json({
-        id: user._id,
+    return res.status(201).json(
+      new ApiResponse(200, "Registration successful", {
         gmail: user.gmail,
         name: user.name,
         imgUrl: user.imgUrl,
         token,
-      });
-    } else {
-      res
+      })
+    );
+  } catch (error) {
+    return res
+      .status(500)
+      .json(new ApiResponse(500, "Server error, please try again"));
+  }
+};
+
+// Login a user
+const loginUser = async (req, res) => {
+  const { gmail, password } = req.body;
+
+  try {
+    if (!gmail || !password) {
+      return res
         .status(400)
-        .json({ message: "Invalid credentials. Please check your password." });
+        .json(new ApiResponse(400, "Please fill all fields"));
     }
-  } catch (error) {
-    res.status(500).json({ message: "Server error, please try again" });
-  }
-};
 
-// Update user details (name, imgUrl)
-const updateUser = async (req, res) => {
-  const { name, imgUrl } = req.body;
-
-  try {
-    // Find user by ID
-    const user = await User.findById(req.user.id); // Assume the user ID is passed in the token
+    const user = await User.findOne({ gmail });
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(400).json(new ApiResponse(400, "Invalid credentials"));
     }
 
-    // Update user details
-    if (name) user.name = name;
-    if (imgUrl) user.imgUrl = imgUrl;
-
-    await user.save();
-
-    res.status(200).json({
-      message: "User updated successfully",
-      user: { name: user.name, imgUrl: user.imgUrl },
-    });
-  } catch (error) {
-    res.status(500).json({ message: "Server error, please try again" });
-  }
-};
-
-// Delete user account
-const deleteUser = async (req, res) => {
-  try {
-    // Find user by ID
-    const user = await User.findByIdAndDelete(req.user.id); // Assume the user ID is passed in the token
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    if (!isPasswordMatch) {
+      return res.status(400).json(new ApiResponse(400, "Invalid credentials"));
     }
 
-    res.status(200).json({ message: "User deleted successfully" });
+    const token = generateToken(user._id);
+    return res.status(200).json(
+      new ApiResponse(200, "Login successful", {
+        gmail: user.gmail,
+        name: user.name,
+        imgUrl: user.imgUrl,
+        token,
+      })
+    );
   } catch (error) {
-    res.status(500).json({ message: "Server error, please try again" });
+    return res
+      .status(500)
+      .json(new ApiResponse(500, "Server error, please try again"));
   }
 };
 
 // Reset password
 const resetPassword = async (req, res) => {
-  const { gmail, newPassword, confirmNewPassword } = req.body;
+  const { gmail, newPassword } = req.body;
 
   try {
-    // Check if new passwords match
-    if (newPassword !== confirmNewPassword) {
-      return res.status(400).json({ message: "Passwords do not match" });
+    if (!gmail || !newPassword) {
+      return res
+        .status(400)
+        .json(new ApiResponse(400, "Please fill all fields"));
     }
 
-    // Find user by email (gmail)
     const user = await User.findOne({ gmail });
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json(new ApiResponse(404, "User not found"));
     }
 
-    // Hash the new password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(newPassword, salt);
-
-    // Update user password
     user.password = hashedPassword;
+
     await user.save();
 
-    res.status(200).json({ message: "Password updated successfully" });
+    return res
+      .status(200)
+      .json(new ApiResponse(200, "Password reset successfully"));
   } catch (error) {
-    res.status(500).json({ message: "Server error, please try again" });
+    return res
+      .status(500)
+      .json(new ApiResponse(500, "Server error, please try again"));
   }
 };
 
 module.exports = {
   registerUser,
   loginUser,
-  updateUser,
-  deleteUser,
   resetPassword,
 };
