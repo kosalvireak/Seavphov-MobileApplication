@@ -5,6 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiManager {
     private var apiService: ApiService? = null
+    private var seavphovApiService: ApiService? = null
 
     fun getApiService(): ApiService {
         if (apiService == null) {
@@ -15,5 +16,16 @@ object ApiManager {
             apiService = retrofit.create(ApiService::class.java)
         }
         return apiService!!
+    }
+
+    fun getSeavphovApiService(): ApiService {
+        if (seavphovApiService == null) {
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://seavphov-mobileapplication.onrender.com/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            seavphovApiService = retrofit.create(ApiService::class.java)
+        }
+        return seavphovApiService!!
     }
 }
