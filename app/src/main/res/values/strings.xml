@@ -44,6 +44,7 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="editProfile_username">Username</string>
     <string name="editProfile_bio">Bio</string>
+    <string name="editProfile_button">Save</string>
     <string name="editProfileHint_username">Enter username</string>
     <string name="editProfileHint_bio">Write your bio</string>
 
