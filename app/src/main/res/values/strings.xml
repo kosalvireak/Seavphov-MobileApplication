@@ -25,13 +25,13 @@
     <string name="username">Username</string>
     <string name="signup_username">Enter username</string>
 
-    <string name="book_title">Book Title</string>
-    <string name="book_author">Book Author</string>
+    <string name="book_title">Title</string>
+    <string name="book_author">Author</string>
     <string name="book_condition">Condition</string>
     <string name="book_category">Category</string>
     <string name="book_description">Description</string>
     <string name="book_location">Location</string>
-    <string name="book_upload">Upload File</string>
+    <string name="book_upload">Upload Image</string>
 
     <string name="addBook_title">Enter title</string>
     <string name="addBook_author">Enter author</string>

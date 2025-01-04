@@ -8,17 +8,23 @@ import androidx.fragment.app.Fragment
 import kh.edu.rupp.seavphov.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
-    private var binding: FragmentProfileBinding? = null
+    lateinit var binding: FragmentProfileBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
-        return binding!!.getRoot()
+        return binding.getRoot()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState == null) {
+            childFragmentManager.beginTransaction()
+                .replace(binding.bookListContainer.id, BookListFragment("My books"))
+                .commit()
+        }
     }
 }
