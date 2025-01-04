@@ -9,14 +9,6 @@
     android:padding="30dp">
 
     <ImageView
-        android:id="@+id/backArrow"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -25,8 +17,7 @@
         android:clipToOutline="true"
         android:scaleType="centerCrop"
         android:src="@drawable/seavphov_profile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backArrow" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/userName"
