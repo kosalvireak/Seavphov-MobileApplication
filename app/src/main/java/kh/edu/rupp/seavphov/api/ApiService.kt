@@ -6,9 +6,12 @@ import kh.edu.rupp.seavphov.model.Book
 import kh.edu.rupp.seavphov.model.BookDetail
 import kh.edu.rupp.seavphov.model.Carousel
 import kh.edu.rupp.seavphov.model.Notification
-import retrofit2.http.GET;
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ApiService {
+
+    // DUMMY API
     @GET("carousel.json")
     suspend fun loadCarousel(): ApiResponse<Carousel>
 
@@ -29,4 +32,12 @@ interface ApiService {
 
     @GET("Notifications.json")
     suspend fun loadNotificationsList(): ApiResponse<ArrayList<Notification>>
+
+    // Real API
+    @GET("books")
+    suspend fun loadAllSeavphov(): ApiResponse<ArrayList<Book>>
+
+    @GET("books/{bookId}")
+    suspend fun loadBookById(@Path("bookId") bookId: String): ApiResponse<Book>
+
 }
