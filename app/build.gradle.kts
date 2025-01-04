@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -55,6 +56,9 @@ dependencies {
     implementation ("androidx.navigation:navigation-runtime-ktx:2.8.4")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.8.4")
     implementation ("androidx.navigation:navigation-ui-ktx:2.8.4")
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.11.0")
+    implementation ("com.google.firebase:firebase-storage:21.0.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
