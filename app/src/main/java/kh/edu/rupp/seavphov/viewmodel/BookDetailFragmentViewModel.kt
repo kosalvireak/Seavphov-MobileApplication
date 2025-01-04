@@ -7,19 +7,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kh.edu.rupp.seavphov.api.ApiManager
 import kh.edu.rupp.seavphov.model.ApiState
-import kh.edu.rupp.seavphov.model.BookDetail
+import kh.edu.rupp.seavphov.model.Book
 import kh.edu.rupp.seavphov.model.State
 import kotlinx.coroutines.launch
 
 class BookDetailFragmentViewModel : ViewModel() {
 
-    private val _bookDetailState = MutableLiveData<ApiState<BookDetail>>()
-    val bookDetailState: LiveData<ApiState<BookDetail>> get() = _bookDetailState
+    private val _bookDetailState = MutableLiveData<ApiState<Book>>()
+    val bookDetailState: LiveData<ApiState<Book>> get() = _bookDetailState
 
-    fun loadBookDetail() {
-        val apiService = ApiManager.getApiService()
+    fun loadBookDetail(bookId: String) {
+        val apiService = ApiManager.getSeavphovApiService()
         viewModelScope.launch {
-            val response = apiService.loadBookDetail()
+            val response = apiService.loadBookById(bookId)
             Log.d("Seavphov", "loadBookDetail: $response")
             try {
                 if (response.isSuccess()) {
