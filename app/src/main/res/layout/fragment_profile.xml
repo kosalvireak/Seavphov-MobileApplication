@@ -9,6 +9,14 @@
     android:padding="30dp">
 
     <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -18,20 +26,50 @@
         android:scaleType="centerCrop"
         android:src="@drawable/seavphov_profile"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/backArrow" />
 
     <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="50dp"
         android:text="Kry Sokuntheary"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/profilePicture"
         app:layout_constraintTop_toTopOf="@id/profilePicture" />
+    <LinearLayout
+        android:id="@+id/followerStats"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/userName"
+        app:layout_constraintStart_toEndOf="@id/profilePicture"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="250K\nFollowers"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:id="@+id/following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="10K\nFollowing"
+            android:textSize="16sp"
+            android:textColor="#000000" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/mail"
@@ -101,27 +139,30 @@
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bio">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/myBookButton"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_height="37dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/rounded_button"
             android:text="My Book"
             android:textColor="#FFFFFF"
-            android:textSize="10dp" />
+            android:textSize="13dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/savedBookButton"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_height="37dp"
             android:background="@drawable/rounded_button"
             android:text="Saved Book"
             android:textColor="#FFFFFF"
-            android:textSize="10dp" />
+            android:textSize="13dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
 
 
     </LinearLayout>
