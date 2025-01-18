@@ -30,20 +30,20 @@ const registerUser = async (req, res) => {
     if (!gmail || !password || !confirmPassword) {
       return res
         .status(400)
-        .json(new ApiResponse(400, "Please fill all fields"));
+        .json(new ApiResponse("failed", "Please fill all fields"));
     }
 
     if (password !== confirmPassword) {
       return res
         .status(400)
-        .json(new ApiResponse(400, "Passwords do not match"));
+        .json(new ApiResponse("failed", "Passwords do not match"));
     }
 
     const userExists = await User.findOne({ gmail });
     if (userExists) {
       return res
         .status(400)
-        .json(new ApiResponse(400, "User already exists. Please login!"));
+        .json(new ApiResponse("failed", "User already exists. Please login!"));
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -61,7 +61,7 @@ const registerUser = async (req, res) => {
     await user.save();
 
     return res.status(201).json(
-      new ApiResponse(200, "Registration successful", {
+      new ApiResponse("success", "Registration successful", {
         gmail: user.gmail,
         name: user.name,
         imgUrl: user.imgUrl,
@@ -71,7 +71,7 @@ const registerUser = async (req, res) => {
   } catch (error) {
     return res
       .status(500)
-      .json(new ApiResponse(500, "Server error, please try again"));
+      .json(new ApiResponse("failed", "Server error, please try again"));
   }
 };
 
@@ -83,22 +83,26 @@ const loginUser = async (req, res) => {
     if (!gmail || !password) {
       return res
         .status(400)
-        .json(new ApiResponse(400, "Please fill all fields"));
+        .json(new ApiResponse("failed", "Please fill all fields"));
     }
 
     const user = await User.findOne({ gmail });
     if (!user) {
-      return res.status(400).json(new ApiResponse(400, "Invalid credentials"));
+      return res
+        .status(400)
+        .json(new ApiResponse("failed", "Invalid credentials"));
     }
 
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
-      return res.status(400).json(new ApiResponse(400, "Invalid credentials"));
+      return res
+        .status(400)
+        .json(new ApiResponse("failed", "Invalid credentials"));
     }
 
     const token = generateToken(user._id);
     return res.status(200).json(
-      new ApiResponse(200, "Login successful", {
+      new ApiResponse("success", "Login successful", {
         gmail: user.gmail,
         name: user.name,
         imgUrl: user.imgUrl,
@@ -108,7 +112,7 @@ const loginUser = async (req, res) => {
   } catch (error) {
     return res
       .status(500)
-      .json(new ApiResponse(500, "Server error, please try again"));
+      .json(new ApiResponse("failed", "Server error, please try again"));
   }
 };
 
@@ -120,12 +124,12 @@ const resetPassword = async (req, res) => {
     if (!gmail || !newPassword) {
       return res
         .status(400)
-        .json(new ApiResponse(400, "Please fill all fields"));
+        .json(new ApiResponse("failed", "Please fill all fields"));
     }
 
     const user = await User.findOne({ gmail });
     if (!user) {
-      return res.status(404).json(new ApiResponse(404, "User not found"));
+      return res.status(404).json(new ApiResponse("failed", "User not found"));
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -136,11 +140,11 @@ const resetPassword = async (req, res) => {
 
     return res
       .status(200)
-      .json(new ApiResponse(200, "Password reset successfully"));
+      .json(new ApiResponse("success", "Password reset successfully"));
   } catch (error) {
     return res
       .status(500)
-      .json(new ApiResponse(500, "Server error, please try again"));
+      .json(new ApiResponse("failed", "Server error, please try again"));
   }
 };
 
