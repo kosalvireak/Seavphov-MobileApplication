@@ -29,20 +29,20 @@ const registerUser = async (req, res) => {
   try {
     if (!gmail || !password || !confirmPassword) {
       return res
-        .status(400)
+        .status(200)
         .json(new ApiResponse("failed", "Please fill all fields"));
     }
 
     if (password !== confirmPassword) {
       return res
-        .status(400)
+        .status(200)
         .json(new ApiResponse("failed", "Passwords do not match"));
     }
 
     const userExists = await User.findOne({ gmail });
     if (userExists) {
       return res
-        .status(400)
+        .status(200)
         .json(new ApiResponse("failed", "User already exists. Please login!"));
     }
 
@@ -82,21 +82,21 @@ const loginUser = async (req, res) => {
   try {
     if (!gmail || !password) {
       return res
-        .status(400)
+        .status(200)
         .json(new ApiResponse("failed", "Please fill all fields"));
     }
 
     const user = await User.findOne({ gmail });
     if (!user) {
       return res
-        .status(400)
+        .status(200)
         .json(new ApiResponse("failed", "Invalid credentials"));
     }
 
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
       return res
-        .status(400)
+        .status(200)
         .json(new ApiResponse("failed", "Invalid credentials"));
     }
 
@@ -123,7 +123,7 @@ const resetPassword = async (req, res) => {
   try {
     if (!gmail || !newPassword) {
       return res
-        .status(400)
+        .status(200)
         .json(new ApiResponse("failed", "Please fill all fields"));
     }
 
