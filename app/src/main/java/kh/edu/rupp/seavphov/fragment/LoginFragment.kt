@@ -44,11 +44,12 @@ class LoginFragment : Fragment() {
         hideMainLoading()
 
         binding.backIcon.setOnClickListener {
-            findNavController().navigate(R.id.action_LoginFragment_to_HomeFragment);
+            findNavController().navigateUp();
             mainActivity?.showTopNavigation()
             mainActivity?.showBottomNavigation()
             mainActivity?.selectHomeNavigation()
         }
+
         binding.signupButton.setOnClickListener {
             findNavController().navigate(R.id.action_LoginFragment_to_SignUpFragment)
         }

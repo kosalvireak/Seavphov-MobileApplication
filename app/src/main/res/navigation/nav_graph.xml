@@ -18,7 +18,7 @@
             app:destination="@id/bookDetailFragment">
             <argument
                 android:name="bookId"
-                app:argType="string"/>
+                app:argType="string" />
         </action>
     </fragment>
 
@@ -26,8 +26,7 @@
         android:id="@+id/categoryFragment"
         android:name="kh.edu.rupp.seavphov.fragment.CategoryFragment"
         android:label="Category Fragment"
-        tools:layout="@layout/fragment_category">
-    </fragment>
+        tools:layout="@layout/fragment_category"></fragment>
 
     <fragment
         android:id="@+id/bookDetailFragment"
@@ -36,7 +35,7 @@
         tools:layout="@layout/fragment_bookdetail">
         <argument
             android:name="bookId"
-            app:argType="string"/>
+            app:argType="string" />
         <action
             android:id="@+id/action_bookDetailFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -49,7 +48,7 @@
         tools:layout="@layout/fragment_signup">
         <action
             android:id="@+id/action_signUpFragment_to_LoginFragment"
-            app:destination="@id/loginFragment"/>
+            app:destination="@id/loginFragment" />
     </fragment>
 
     <fragment
@@ -59,10 +58,7 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_LoginFragment_to_SignUpFragment"
-            app:destination="@id/signUpFragment"/>
-        <action
-            android:id="@+id/action_LoginFragment_to_HomeFragment"
-            app:destination="@id/homeFragment"/>
+            app:destination="@id/signUpFragment" />
     </fragment>
 
     <fragment
@@ -86,6 +82,30 @@
         android:name="kh.edu.rupp.seavphov.fragment.ProfileFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_profile">
+
+<!--        <action-->
+<!--            android:id="@+id/action_profileFragment_to_LoginFragment"-->
+<!--            app:destination="@id/loginFragment" />-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_profileFragment_to_signUpFragment"-->
+<!--            app:destination="@id/signUpFragment" />-->
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/noPermissionFragment"
+        android:name="kh.edu.rupp.seavphov.fragment.NoPermissionFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_no_permission">
+        <action
+            android:id="@+id/action_noPermissionFragment_to_LoginFragment"
+            app:destination="@id/loginFragment" />
+
+        <action
+            android:id="@+id/action_noPermissionFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
 
     </fragment>
 </navigation>

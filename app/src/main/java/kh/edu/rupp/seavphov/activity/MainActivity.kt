@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         // Start Fragment
         navController.navigate(R.id.homeFragment)
+        // Hide button and top nav for login and sign-up
+        hideOrShowNavigationListener()
 
         // Handle on click
         binding.searchButton.setOnClickListener {
@@ -47,25 +49,51 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
             handleOnNavigationItemsSelected(menuItem)
         }
+
+    }
+
+    private fun hideOrShowNavigationListener() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.loginFragment, R.id.signUpFragment -> {
+                    hideBottomNavigation()
+                    hideTopNavigation()
+                }
+
+                else -> {
+                    showTopNavigation()
+                    showBottomNavigation()
+                }
+            }
+        }
+
     }
 
     private fun handleOnNavigationItemsSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_home -> navController.navigate(R.id.homeFragment)
             R.id.menu_category -> navController.navigate(R.id.categoryFragment)
-            R.id.menu_add_book -> navController.navigate(R.id.addBookFragment)
+            R.id.menu_add_book -> checkPermissionPage(R.id.addBookFragment)
             R.id.menu_notification -> navController.navigate(R.id.notificationFragment)
             else -> checkAndProcessProfilePage()
         }
         return true
     }
 
-    private fun checkAndProcessProfilePage(){
-        if(isUserLoggedIn()){
+    private fun checkPermissionPage(resId: Int) {
+        if (isUserLoggedIn()) {
+            navController.navigate(resId)
+        } else {
+            navController.navigate(R.id.noPermissionFragment)
+        }
+    }
+
+    private fun checkAndProcessProfilePage() {
+        if (isUserLoggedIn()) {
             navController.navigate(R.id.profileFragment)
             showTopNavigation()
             showBottomNavigation()
-        }else{
+        } else {
             navController.navigate(R.id.loginFragment)
         }
     }

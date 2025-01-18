@@ -41,14 +41,27 @@ class SignUpFragment : Fragment() {
 
         mainActivity?.hideBottomNavigation()
         mainActivity?.hideTopNavigation()
+        hideMainLoading()
 
         binding.backIcon.setOnClickListener {
-            findNavController().navigate(R.id.action_signUpFragment_to_LoginFragment)
+            findNavController().navigateUp()
         }
 
         binding.loginButton.setOnClickListener {
             findNavController().navigate(R.id.action_signUpFragment_to_LoginFragment)
         }
+    }
+
+
+
+    private fun showMainLoading() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.bodySection.visibility = View.GONE
+    }
+
+    private fun hideMainLoading() {
+        binding.progressBar.visibility = View.GONE
+        binding.bodySection.visibility = View.VISIBLE
     }
 
 }
