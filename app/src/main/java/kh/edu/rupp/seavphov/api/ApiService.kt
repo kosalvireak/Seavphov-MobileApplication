@@ -5,8 +5,12 @@ import kh.edu.rupp.seavphov.model.ApiResponse
 import kh.edu.rupp.seavphov.model.Book
 import kh.edu.rupp.seavphov.model.BookDetail
 import kh.edu.rupp.seavphov.model.Carousel
+import kh.edu.rupp.seavphov.model.LoginResponse
 import kh.edu.rupp.seavphov.model.Notification
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
@@ -39,5 +43,12 @@ interface ApiService {
 
     @GET("books/{bookId}")
     suspend fun loadBookById(@Path("bookId") bookId: String): ApiResponse<Book>
+
+    @FormUrlEncoded
+    @POST("auth/login")
+    suspend fun login(
+        @Field("gmail") gmail: String,
+        @Field("password") password: String
+    ): ApiResponse<LoginResponse>
 
 }
