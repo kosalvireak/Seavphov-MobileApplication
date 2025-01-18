@@ -7,8 +7,9 @@
     <string name="profile">Profile</string>
     <string name="cart">Cart</string>
     <string name="search">Search</string>
+    <string name="no_permissiom">You do not have permission to view the content</string>
+    <string name="require_login">Please Sign in to access this page</string>
 
-    <string name="dummy_description">dummy_description</string>
     <string name="description">Seavphov is a helpful web app that works like a donation platform for books. People can list their old books on Seavphov, so that others can easily see what is available and borrow those books for free. @vireak</string>
     <string name="login">Login</string>
     <string name="forget_password">Forget Password?</string>
@@ -112,4 +113,5 @@
     <string name="dummy_category">dummy_category</string>
     <string name="dummy_condition">dummy_condition</string>
     <string name="dummy_location">dummy_location</string>
+    <string name="dummy_description">dummy_description</string>
 </resources>
