@@ -28,6 +28,7 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
+        android:id="@+id/pencil_icon"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:contentDescription="@string/email"
