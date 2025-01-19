@@ -12,6 +12,7 @@ kotlin = "1.9.22"
 core = "1.15.0"
 navigationFragmentKtx = "2.8.4"
 navigationUiKtx = "2.8.4"
+firebaseStorageKtx = "21.0.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -25,6 +26,7 @@ core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx"
 core = { group = "androidx.core", name = "core", version.ref = "core" }
 navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
