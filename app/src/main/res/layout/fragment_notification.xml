@@ -20,6 +20,12 @@
             android:textSize="28sp"
             android:layout_marginVertical="20dp"/>
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:ignore="MissingConstraints" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notificationRecyclerView"
         android:layout_width="0dp"
@@ -30,6 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_notification" />
+        tools:listitem="@layout/activity_holder_notification_info" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
