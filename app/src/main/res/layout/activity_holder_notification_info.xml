@@ -6,13 +6,13 @@
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
     android:padding="8dp"
-    android:layout_marginBottom="2dp">
+    android:layout_marginVertical="10dp">
 
     <!-- Profile Image -->
     <ImageView
         android:id="@+id/profileImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:scaleType="centerCrop"
         android:src="@drawable/seavphov_profile"
         android:contentDescription="Profile Image"
@@ -39,8 +39,9 @@
             android:layout_height="wrap_content"
             android:text="AA saved your book"
             android:textColor="#000000"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/notificationTime"
@@ -48,13 +49,13 @@
             android:layout_height="wrap_content"
             android:text="222 days ago"
             android:textColor="#7E7E7E"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/rightImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="85dp"
+        android:layout_height="130dp"
         android:src="@drawable/seavphov_dummy"
         android:contentDescription="Book Image"
         app:layout_constraintTop_toTopOf="parent"
