@@ -41,6 +41,18 @@ class ProfileFragment : Fragment() {
         }
         setUserProfile()
 
+        binding.savedBookButton.setOnClickListener{
+            childFragmentManager.beginTransaction()
+                .replace(binding.bookListContainer.id, BookListFragment("Saved books"))
+                .commit()
+        }
+
+        binding.myBookButton.setOnClickListener{
+            childFragmentManager.beginTransaction()
+                .replace(binding.bookListContainer.id, BookListFragment("My books"))
+                .commit()
+        }
+
         binding.pencilIcon.setOnClickListener {
             mainActivity?.clearLoginState()
         }
