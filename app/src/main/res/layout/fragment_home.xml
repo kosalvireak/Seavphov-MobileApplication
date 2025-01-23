@@ -49,21 +49,21 @@
                             android:layout_marginEnd="10dp">
                             <!-- Book Title -->
                             <TextView
-                                android:id="@+id/book_title"
+                                android:id="@+id/carousel_title"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:text="@string/the_lightning_thief"
                                 android:textColor="@android:color/white"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:layout_weight="1"
-                                android:layout_marginBottom="10dp"
+                                android:layout_marginBottom="15dp"
                                 tools:ignore="NestedWeights" />
                             <!-- Book Description -->
                             <TextView
-                                android:id="@+id/book_description"
+                                android:id="@+id/carousel_description"
                                 android:layout_width="300dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="70dp"
                                 android:layout_marginEnd="8dp"
                                 android:text="@string/book_description"
                                 android:textColor="@android:color/white"

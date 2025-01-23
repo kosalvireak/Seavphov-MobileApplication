@@ -21,7 +21,7 @@ import kh.edu.rupp.seavphov.viewmodel.HomeFragmentViewModel
 
 class HomeFragment : Fragment() {
     private val viewModel by viewModels<HomeFragmentViewModel>()
-    private lateinit var binding: FragmentHomeBinding;
+    private lateinit var binding: FragmentHomeBinding
     private var bookAdapter: BookAdapter? = null;
     private var bookInfoAdapter: BookInfoAdapter? = null
 
@@ -168,10 +168,12 @@ class HomeFragment : Fragment() {
 
     private fun displayCarousel(carousel: Book) {
         carouselId = carousel._id
-
-        Toast.makeText(context, "Carousel fetch success", Toast.LENGTH_SHORT).show()
-        binding.bookTitle.text = carousel.title
-        binding.bookDescription.text = carousel.description
+        binding.carouselTitle.text = carousel.title
+        binding.carouselDescription.text = if (carousel.description.length > 150) {
+            carousel.description.take(200) + "..."
+        } else {
+            carousel.description
+        }
         Picasso.get()
             .load(carousel.imgUrl)
             .into(binding.bookImage)
@@ -200,6 +202,6 @@ class HomeFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun showErrorContent() {
-        binding.bookTitle.text = "Something went wrong!";
+        Toast.makeText(context, "Something went wrong!", Toast.LENGTH_SHORT).show()
     }
 }
