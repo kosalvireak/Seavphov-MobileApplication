@@ -99,11 +99,10 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/addbook_roundedcorner_box"
                 android:drawableEnd="@drawable/ic_dropdown"
-                android:drawablePadding="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="10dp"
+                android:drawablePadding="20dp"
                 android:gravity="center_vertical"
-                android:textSize="12sp"
+                android:textColor="@color/gray_text"
+                android:textSize="8sp"
                 android:spinnerMode="dropdown" />
 
             <TextView
@@ -123,11 +122,10 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/addbook_roundedcorner_box"
                 android:drawableEnd="@drawable/ic_dropdown"
-                android:drawablePadding="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="10dp"
+                android:drawablePadding="20dp"
                 android:gravity="center_vertical"
-                android:textSize="12sp"
+                android:textColor="@color/gray_text"
+                android:textSize="8sp"
                 android:spinnerMode="dropdown" />
 
             <TextView
