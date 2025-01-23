@@ -8,8 +8,16 @@ import com.squareup.picasso.Picasso
 import kh.edu.rupp.seavphov.databinding.ActivityHolderBookBinding
 import kh.edu.rupp.seavphov.model.Book
 
-class BookAdapter(private val bookList: List<Book>) :
-    RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(
+    private val bookList: List<Book>,
+    private val onBookClickListener: OnBookClickListener
+) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+
+    // interface to handle action click
+    interface OnBookClickListener {
+        fun onBookClick(book: Book)
+    }
+
     class BookViewHolder(val binding: ActivityHolderBookBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -27,6 +35,12 @@ class BookAdapter(private val bookList: List<Book>) :
         Picasso.get()
             .load(book.imgUrl)
             .into(holder.binding.bookImage);
+
+
+        //add click listener
+        holder.itemView.setOnClickListener {
+            onBookClickListener.onBookClick(book)
+        }
     }
 
     override fun getItemCount(): Int {

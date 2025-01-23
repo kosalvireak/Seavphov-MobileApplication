@@ -46,8 +46,7 @@ class HomeFragment : Fragment() {
 
         // Handle Button
         binding.readMoreButton.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToBookDetailFragment(carouselId)
-            findNavController().navigate(action)
+            navigateToBookDetail(carouselId)
         }
 
         binding.fantasyButton.setOnClickListener {
@@ -101,6 +100,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.thisWeekHighlightState.observe(viewLifecycleOwner) { thisWeekHighlightState ->
+            // real data
             when (thisWeekHighlightState.state) {
                 State.loading -> hideMainLoading()
                 State.success -> {
@@ -124,18 +124,40 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun navigateToBookDetail(bookId: String) {
+        val action = HomeFragmentDirections.actionHomeFragmentToBookDetailFragment(bookId)
+        findNavController().navigate(action)
+    }
+
     private fun displayNewestAddition(bookList: ArrayList<Book>) {
         binding.newAdditionRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        bookAdapter = BookAdapter(bookList);
+        bookAdapter = BookAdapter(bookList, object : BookAdapter.OnBookClickListener {
+            override fun onBookClick(book: Book) {
+                Toast.makeText(
+                    requireContext(),
+                    "Selected Book title: ${book.title}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        });
         binding.newAdditionRecyclerView.adapter = bookAdapter
     }
 
     private fun displayThisWeekHighlight(bookList: ArrayList<Book>) {
+        // real data
         binding.thisWeekHightlight.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        bookAdapter = BookAdapter(bookList);
+        bookAdapter = BookAdapter(bookList, object : BookAdapter.OnBookClickListener {
+            override fun onBookClick(book: Book) {
+                handleOnBookClick(book)
+            }
+        });
         binding.thisWeekHightlight.adapter = bookAdapter
+    }
+
+    private fun handleOnBookClick(book: Book) {
+        navigateToBookDetail(book._id)
     }
 
 //    private fun displayBooksList(bookList: ArrayList<Book>) {
