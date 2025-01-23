@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1096446548829",
+    "project_id": "seavphov-919d7",
+    "storage_bucket": "seavphov-919d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096446548829:android:25bf0e314f2a8890b366b4",
+        "android_client_info": {
+          "package_name": "kh.edu.rupp.seavphov.uat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB38vFo76Ihe9M9ElSamGTLlqXpty18v9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

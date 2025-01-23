@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">Seavphov UAT</string>
+    <string name="home">Home</string>
+    <string name="add_book">Add Book</string>
+    <string name="category">Category</string>
+    <string name="notification">Notification</string>
+    <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
+    <string name="search">Search</string>
+    <string name="no_permissiom">You do not have permission to view the content</string>
+    <string name="require_login">Please Sign in to access this page</string>
+
+    <string name="description">Seavphov is a helpful web app that works like a donation platform for books. People can list their old books on Seavphov, so that others can easily see what is available and borrow those books for free. @vireak</string>
+    <string name="login">Login</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="don_t_have_account_yet">Don’t have account yet?</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="login_email">Enter email</string>
+    <string name="password">Password</string>
+    <string name="login_password">Enter password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup_confirmPassword">Enter password again</string>
+    <string name="read_more">Read more</string>
+    <string name="username">Username</string>
+    <string name="signup_username">Enter username</string>
+
+    <string name="book_title">Title</string>
+    <string name="book_author">Author</string>
+    <string name="book_condition">Condition</string>
+    <string name="book_category">Category</string>
+    <string name="book_description">Description</string>
+    <string name="book_location">Location</string>
+    <string name="book_upload">Upload Image</string>
+
+    <string name="addBookHint_title">Enter title</string>
+    <string name="addBookHint_author">Enter author</string>
+    <string name="addBookHint_condition">SELECT CONDITION</string>
+    <string name="addBookHint_category">SELECT CATEGORY</string>
+    <string name="addBookHint_description">Enter description</string>
+    <string name="addBookHint_location">Enter location</string>
+    <string name="addBookHint_upload">Upload File</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="editProfile_username">Username</string>
+    <string name="editProfile_bio">Bio</string>
+    <string name="editProfile_button">Save</string>
+    <string name="editProfileHint_username">Enter username</string>
+    <string name="editProfileHint_bio">Write your bio</string>
+
+
+    <string name="view_more">View More ></string>
+<!--    <string name="book_description">test Twelve-year-old Percy Jackson is on the most dangerous quest of his life. With the help of a satyr and a daughter of Athena, Percy must...</string>-->
+    <string name="the_lightning_thief">test The Lightning Thief </string>
+    <string name="background_image">Background Image</string>
+    <string name="this_week_highlight">This Week\'s Highlight!</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="history">History</string>
+    <string name="horror">Horror</string>
+    <string name="romance">Romance</string>
+    <string name="see_all">See All</string>
+    <string name="newest_addition">Newest Addition!</string>
+    <string name="message_me">Message me</string>
+    <string name="you_may_also_like">You may also like</string>
+    <string name="_10">$10</string>
+    <string name="as_new">As new</string>
+    <string name="siem_reap">Siem Reap</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="dummy_title">dummy_title</string>
+    <string name="dummy_author">dummy_author</string>
+    <string name="dummy_category">dummy_category</string>
+    <string name="dummy_condition">dummy_condition</string>
+    <string name="dummy_location">dummy_location</string>
+    <string name="dummy_description">dummy_description</string>
+</resources>
