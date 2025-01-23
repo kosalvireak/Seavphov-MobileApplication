@@ -2,7 +2,6 @@
 <resources>
     <style name="ActiveIndicatorStyle" parent="Widget.MaterialComponents.BottomNavigationView">
         <!-- Set the color of the active indicator -->
-        <item name="android:background">@drawable/active_indicator</item> <!-- Reference a drawable here -->
         <item name="android:radius">50dp</item> <!-- Set the shape to be circular -->
         <item name="android:width">48dp</item> <!-- Set width -->
         <item name="android:height">48dp</item> <!-- Set height -->
