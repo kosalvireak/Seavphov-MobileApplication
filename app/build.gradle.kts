@@ -21,14 +21,55 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
+    }
+
+    signingConfigs {
+        create("release") {
+            storeFile = file("/Users/zekk/desktop/Seavphov.jks")
+            storePassword = "123456789"
+            keyAlias = "Seavphov"
+            keyPassword = "123456789"
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    flavorDimensions += "Seavphov"
+    productFlavors{
+        create("uat") {
+            dimension = "Seavphov"
+            applicationId = "kh.edu.rupp.seavphov.uat"
+            resValue("String", "app_name" , "Seavphov UAT")
+
+//            As we have one source of api, im just gonna put it the same one
+            buildConfigField("String", "apiBaseUrl", "\"https://raw.githubusercontent.com/kosalvireak/Seavphov-MobileApplication/master/dummy/\"")
+        }
+//        create("beta") {
+//            dimension = "Seavphov"
+//            applicationId = "kh.edu.rupp.seavphov.beta"
+//            resValue("String", "app_name" , "Seavphov BETA")
+//
+////            As we have one source of api, im just gonna put it the same one
+//            buildConfigField("String", "apiBaseUrl", "\"https://raw.githubusercontent.com/kosalvireak/Seavphov-MobileApplication/master/dummy/\"")
+//        }
+        create("prd") {
+            dimension = "Seavphov"
+            applicationId = "kh.edu.rupp.seavphov.prd"
+            resValue("String", "app_name" , "Seavphov")
+
+//            As we have one source of api, im just gonna put it the same one
+            buildConfigField("String", "apiBaseUrl", "\"https://seavphov-mobileapplication.onrender.com/api/\"")
+        }
+    }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -63,14 +104,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-}
-
-buildscript {
-    repositories {
-        google()
-    }
-    dependencies {
-        val nav_version = "2.8.4"
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
-    }
 }
