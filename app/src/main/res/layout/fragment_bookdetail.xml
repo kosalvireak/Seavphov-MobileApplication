@@ -9,12 +9,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <FrameLayout
-            android:id="@+id/book_detail_container"
+            android:id="@+id/body_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/body_section"
+                android:id="@+id/book_detail_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
