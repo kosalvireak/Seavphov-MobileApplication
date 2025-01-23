@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -41,6 +43,47 @@ class AddBookFragment : Fragment() {
 
         storage = FirebaseStorage.getInstance()
         storageRef = storage.reference
+
+        val categories = listOf("Select Category", "Fantasy", "Romance", "Education", "History", "Science")
+        val conditions = listOf("Select Condition", "New", "Used - Like new", "Good" , "Damaged")
+
+        val categoryAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, categories)
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val conditionAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, conditions)
+        conditionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        binding.spinnerCategory.adapter = categoryAdapter
+        binding.spinnerCondition.adapter = conditionAdapter
+
+        binding.spinnerCategory.setSelection(0)
+        binding.spinnerCondition.setSelection(0)
+
+        binding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedCategory = categories[position]
+                if (selectedCategory == "Select Category") {
+                    return
+                }
+                Toast.makeText(requireContext(),  "$selectedCategory selected", Toast.LENGTH_SHORT).show()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
+        binding.spinnerCondition.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedCondition = categories[position]
+                if (selectedCondition == "Select Condition") {
+                    return
+                }
+                Toast.makeText(requireContext(), "$selectedCondition selected", Toast.LENGTH_SHORT).show()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
 
         val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()){
             binding.imageView.setImageURI(it)
