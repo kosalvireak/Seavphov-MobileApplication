@@ -43,7 +43,7 @@ class BookDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.loadBookDetail(args.bookId)
-
+        showMainLoading()
 
         if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
@@ -95,12 +95,12 @@ class BookDetailFragment : Fragment() {
 
     private fun showMainLoading() {
         binding.progressBar.visibility = View.VISIBLE
-        binding.bodySection.visibility = View.GONE
+        binding.bookDetailContainer.visibility = View.GONE
     }
 
     private fun hideMainLoading() {
         binding.progressBar.visibility = View.GONE
-        binding.bodySection.visibility = View.VISIBLE
+        binding.bookDetailContainer.visibility = View.VISIBLE
     }
 
     @SuppressLint("SetTextI18n")
