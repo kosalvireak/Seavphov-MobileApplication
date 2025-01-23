@@ -145,10 +145,12 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/addbook_roundedcorner_box"
                 android:hint="@string/addBookHint_description"
-                android:inputType="text"
-                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:gravity="top|start"
                 android:textSize="12sp"
                 android:padding="10dp"
+                android:scrollHorizontally="false"
+                android:overScrollMode="always"
                 tools:ignore="TextFields" />
 
             <TextView
