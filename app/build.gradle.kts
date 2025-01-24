@@ -53,31 +53,24 @@ android {
             resValue("string", "app_name", "Seavphov UAT")
 
 //            As we have one source of api, im just gonna put it the same one
-            buildConfigField(
-                "String",
-                "apiBaseUrl",
-                "\"https://raw.githubusercontent.com/kosalvireak/Seavphov-MobileApplication/master/dummy/\""
-            )
+//            buildConfigField(
+//                "String",
+//                "apiBaseUrl",
+//                "\"https://raw.githubusercontent.com/kosalvireak/Seavphov-MobileApplication/master/dummy/\""
+//            )
         }
-//        create("beta") {
-//            dimension = "Seavphov"
-//            applicationId = "kh.edu.rupp.seavphov.beta"
-//            resValue("String", "app_name" , "Seavphov BETA")
-//
-////            As we have one source of api, im just gonna put it the same one
-//            buildConfigField("String", "apiBaseUrl", "\"https://raw.githubusercontent.com/kosalvireak/Seavphov-MobileApplication/master/dummy/\"")
-//        }
+
         create("prd") {
             dimension = "Seavphov"
             applicationId = "kh.edu.rupp.seavphov"
             resValue("string", "app_name", "Seavphov PRD")
 
 //            As we have one source of api, im just gonna put it the same one
-            buildConfigField(
-                "String",
-                "apiBaseUrl",
-                "\"https://seavphov-mobileapplication.onrender.com/api/\""
-            )
+//            buildConfigField(
+//                "String",
+//                "apiBaseUrl",
+//                "\"https://seavphov-mobileapplication.onrender.com/api/\""
+//            )
         }
     }
 
